@@ -1,0 +1,67 @@
+.qbGameObject{position:absolute;left:0px;top:0px;border:0px;margin:0px;padding:0px;display:none;
+              user-select:none;-o-user-select:none;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;}
+.qbBackground{background-color:#aaa;opacity:0.5;z-index:61;position:fixed;}
+#cgc {background-color:#afa;z-index:62;font-size:12px;color:#030;font-family:Tahoma,Verdana,Arial;}
+#cgc .qbMessageScreen{background-color:#0e0;cursor:pointer;width:360px;z-index:92;padding:15px;}
+#cgc .qbMessageTitle{font-weight:bold;text-align:center;padding:5px;}
+#cgc .qbMessageExtra{padding-top:10px;}
+#cgc .qbMessageFollow{font-style:italic;padding-top:10px;}
+#cgc .messageImportant{text-align:center;font-weight:bold;padding:5px;}
+#cgc .qbBorderHorizontal{background:url(images/layout/borderH.png) repeat-x;height:16px;z-index:90;}
+#cgc .qbBorderVertical{background:url(images/layout/borderV.png) repeat-y;width:16px;z-index:90;}
+#cgc .qbContainer{position:fixed;z-index:62;background-color:#afa;}
+#cgc .qbPlayArea {background-color:#0c0;z-index:63;overflow: hidden;}
+#cgc .qbMistDiv{background-color:#ddd;opacity:0.5;z-index:89;}
+#cgc .qbClock{color:#030;font-weight:bold;line-height:40px;text-align:center;z-index:63;}
+#cgc .qbStatistics{font-weight:bold;z-index:63;padding:4px;text-align:center;}
+#cgc .qbStatField{float:left;position:relative;height:32px;line-height:32px;width:128px;}
+#cgc .qbStatField>div{display:inline-block;position:relative;height:32px;line-height:32px;text-align:center;}
+#cgc .qbStatField .desc{margin-right:6px;}
+#cgc .qbOptions{z-index:63;text-align:center;padding:4px;line-height:15px;}
+#cgc .qbOptionSpace{position:relative;}
+#cgc .qbOptionTitle{position:relative;height:16px;margin-top:2px;}
+#cgc .qbOptionButton{position:relative;font-size:11px;padding:3px;cursor:pointer;}
+#cgc .qbOptionBorder{position:relative;background:url(images/layout/borderH.png) center repeat-x;height:16px;}
+#qbOptioncsound.pressed{text-decoration:line-through;}
+#qbOptioncoptions .icon{background:url(images/layout/options.png) center no-repeat;height:20px;}
+#qbOptioncabout .icon{background:url(images/layout/about.png) center no-repeat;height:20px;}
+#qbOptionctricks .icon{background:url(images/layout/actions.png) center no-repeat;height:20px;}
+#qbOptioncpolice .icon{background:url(images/actions/police.png) center no-repeat;height:30px;}
+#qbOptioncschool .icon{background:url(images/actions/school.png) center no-repeat;height:30px;}
+#qbOptionccomunal .icon{background:url(images/actions/comunal.png) center no-repeat;height:30px;}
+#qbOptioncgrass .icon{background:url(images/actions/grass.png) center no-repeat;height:30px;}
+#cgc .qbRunner{background-image:url(images/runner/runner2.png);cursor:crosshair;height:30px;width:30px;z-index:76;border-radius:3px;}
+#cgc .qbRunner:hover{background-image:url(images/runner/runner2a.png);}
+#cgc .qbRunner.left{background-image:url(images/runner/runner1.png);}
+#cgc .qbRunner.left:hover{background-image:url(images/runner/runner1a.png);}
+#cgc .qbGrassDecoration{background-image:url(images/flora/grass.png);height:10px;width:17px;z-index:70;}
+#cgc .qbFlowerDecoration{height:15px;width:15px;z-index:71;}
+#cgc .qbFlowerDecoration.color1{background-image:url(images/flora/flower1.png);}
+#cgc .qbFlowerDecoration.color2{background-image:url(images/flora/flower2.png);}
+#cgc .qbFlowerDecoration.color3{background-image:url(images/flora/flower3.png);}
+#cgc .qbBin{cursor:pointer;height:40px;width:40px;z-index:72;border-radius:2px;background:center no-repeat;}
+#cgc .qbBin.type1{background-image:url(images/bin/bin1.png);}
+#cgc .qbBin.type2{background-image:url(images/bin/bin2.png);}
+#cgc .qbBin.type3{background-image:url(images/bin/bin3.png);}
+#cgc .qbBin.type4{background-image:url(images/bin/bin4.png);}
+#cgc .qbGameObject.type1:hover{background-color:#FFFF59;}
+#cgc .qbGameObject.type2:hover{background-color:#828282;}
+#cgc .qbGameObject.type3:hover{background-color:#59B7FF;}
+#cgc .qbGameObject.type4:hover{background-color:#FC6562;}
+#cgc .qbSplashAlert{color:#f00;font-weight:bold;max-width:300px;padding:3px;z-index:93;}
+#cgc .qbTrash{cursor:move;border-radius:2px;}
+#cgc .qbTrash.type1.size1{background-image:url(images/trash/1.1.png);height:13px;width:18px;}
+#cgc .qbTrash.type1.size2{background-image:url(images/trash/1.2.png);height:25px;width:20px;}
+#cgc .qbTrash.type1.size3{background-image:url(images/trash/1.3.png);height:30px;width:30px;}
+#cgc .qbTrash.type2.size1{background-image:url(images/trash/2.1.png);height:17px;width:18px;}
+#cgc .qbTrash.type2.size2{background-image:url(images/trash/2.2.png);height:25px;width:17px;}
+#cgc .qbTrash.type2.size3{background-image:url(images/trash/2.3.png);height:30px;width:37px;}
+#cgc .qbTrash.type3.size1{background-image:url(images/trash/3.1.png);height:15px;width:15px;}
+#cgc .qbTrash.type3.size2{background-image:url(images/trash/3.2.png);height:20px;width:20px;}
+#cgc .qbTrash.type3.size3{background-image:url(images/trash/3.3.png);height:30px;width:33px;}
+#cgc .qbTrash.type4.size1{background-image:url(images/trash/4.1.png);height:23px;width:10px;}
+#cgc .qbTrash.type4.size2{background-image:url(images/trash/4.2.png);height:25px;width:21px;}
+#cgc .qbTrash.type4.size3{background-image:url(images/trash/4.3.png);height:32px;width:30px;}
+#cgc .qbTrash.size1{z-index:75;}
+#cgc .qbTrash.size2{z-index:74;}
+#cgc .qbTrash.size3{z-index:73;}

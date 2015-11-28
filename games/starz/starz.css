@@ -1,0 +1,27 @@
+.qbGameObject{position:absolute;left:0px;top:0px;border:0px;margin:0px;padding:0px;display:none;
+              user-select:none;-o-user-select:none;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;}
+.qbBackground{background-color:#000;opacity:0.5;z-index:61;position:fixed;}
+.qbMessageScreen {cursor:pointer;width:400px;padding:5px;z-index:92;text-align:center;background-color:#bcd;}
+.qbGemArea{width:640px;height:320px;background-color:#0b0;z-index:40;}
+.qbContainer{width:640px;height:340px;}
+.qbStatistics{width:640px;}
+.qbStarzArea{width:800px;height:580px;background-color:#000;z-index:40;overflow:hidden;}
+.qbStars{width:9px;height:9px;background-image: url('star.png');}
+.qbGalaxy{width:48px;height:24px;background-image: url('galaxy.png');}
+.qbStarship{width:32px;height:32px;background-image: url('starship.png');}
+.qbBullet{width:2px;height:8px;background-color: #fff;}
+
+.qbEnemy{z-index:31;width:32px;height:32px;}
+.qbEnemy.enemy1{background-image: url('enemy/1.png');}
+.qbEnemy.enemy2{background-image: url('enemy/2.png');}
+.qbEnemy.enemy3{background-image: url('enemy/3.png');}
+.qbEnemy.enemy4{background-image: url('enemy/4.png');}
+.qbEnemy.enemy5{background-image: url('enemy/5.png');}
+.qbEnemy.enemy6{background-image: url('enemy/6.png');}
+
+
+.qbStatistics{font-weight:bold;z-index:63;padding:4px;text-align:center;}
+.qbStatField{float:left;position:relative;height:32px;line-height:32px;width:128px;}
+.qbStatField>div{display:inline-block;position:relative;height:32px;line-height:32px;text-align:center;}
+.qbStatField .desc{margin-right:6px;}
+

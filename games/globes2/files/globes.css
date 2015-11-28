@@ -1,0 +1,40 @@
+.qbConfirmMessage {padding:0 15px;background-color:#bcd;font-family:Verdana,Tahoma,Arial;text-align:center}
+.qbConfirmMessage>p{padding:15px 0;margin:0}
+.qbConfirmMessage table{border-collapse: collapse;width:400px;text-align:center;}
+.qbConfirmMessage tbody tr:hover{background-color:#def;}
+.qbGameArea {z-index:11;font-family:Verdana,Tahoma,Arial;width:580px;height:480px;left:60px;overflow:hidden}
+#sgc {position:fixed;z-index:62;background-color:#bcd;font-family:Verdana,Tahoma,Arial;width:640px;height:480px}
+.qbOptions{z-index:63;text-align:center;width:60px;height:156px;top:4px}
+.qbBackground{background-color:#000;opacity: 0.5}
+#sgc>.qbBackground{opacity:1;z-index:0;background: transparent center center no-repeat}
+.qbStatistics{font-weight:bold;z-index:63;text-align:center;width:60px;height:316px;top:162px;}
+.qbStatField{position:relative;}
+.qbStatField>.desc{display:block;height:32px;margin-top:10px;}
+#qbStatactive>.desc{background:url('images/stats/active.png') center no-repeat;}
+#qbStathit>.desc{background:url('images/stats/hit.png') center no-repeat;}
+#qbStatlife>.desc{background:url('images/stats/life.png') center no-repeat;}
+#qbStatspeed>.desc{background:url('images/stats/speed.png') center no-repeat;}
+#qbStatpoints>.desc{background:url('images/stats/points.png') center no-repeat;}
+.qbBorderHorizontal{background:url('images/h.png') repeat-x;height:6px;width:100%;z-index:90;border-radius:3px}
+.qbBorderVertical{background:url('images/v.png') repeat-y;height:100%;width:6px;z-index:90;border-radius:3px}
+.qbOptions{z-index:63;text-align:center;}
+.qbOptionButton{position:relative;height:52px;margin:0 5px}
+#qbOptionsound {background:url('images/options/soundOn.png') center no-repeat;}
+#qbOptionsound.checked{background-image:url('images/options/soundOff.png');}
+#qbOptionpause {background:url('images/options/pause.png') center no-repeat;}
+#qbOptionpause.checked{background-image:url('images/options/play.png');}
+#qbOptionexit {background:url('images/options/exit.png') center no-repeat;}
+.qbSplashMessage{color:#f00;font-weight:bold;z-index:93;pointer-events:none;border-radius:2px;padding:5px 10px;text-shadow:1px 1px 2px black}
+.qbTarget.type1{border-radius:20px;box-shadow:1px 1px 1px #aaa;width:40px;height:40px;background-image:url('images/balls/type1.png');}
+.qbTarget.type2{border-radius:20px;box-shadow:1px 1px 1px #aaa;width:40px;height:40px;background-image:url('images/balls/type2.png');}
+.qbTarget.type3{border-radius:20px;box-shadow:1px 1px 1px #aaa;width:40px;height:40px;background-image:url('images/balls/type3.png');}
+.qbTarget.type4{border-radius:20px;box-shadow:1px 1px 1px #aaa;width:40px;height:40px;background-image:url('images/balls/type4.png');}
+.qbTarget.type5{border-radius:25px;box-shadow:1px 1px 1px #aaa;width:50px;height:50px;background-image:url('images/balls/type5.png');}
+.qbTarget.type6{border-radius:30px;box-shadow:1px 1px 1px #aaa;width:60px;height:60px;background-image:url('images/balls/type6.png');}
+.qbTarget.type7{border-radius:30px;width:60px;height:60px;background-image:url('images/balls/type7.png');}
+.qbTarget.type8{border-radius:30px;width:60px;height:60px;background-image:url('images/balls/type8.png');}
+.qbTarget.type9{border-radius:30px;width:60px;height:60px;background-image:url('images/balls/type9.png');}
+.qbTarget.type10{border-radius:30px;width:60px;height:60px;background-image:url('images/balls/type10.png');}
+.qbTarget.type11{border-radius:35px;width:70px;height:70px;background-image:url('images/balls/type11.png');}
+.qbTarget.type12{border-radius:40px;width:80px;height:80px;background-image:url('images/balls/type12.png');}
+.qbTarget{cursor:crosshair;}

@@ -1,0 +1,19 @@
+.qbGameObject{position:absolute;left:0px;top:0px;border:0px;margin:0px;padding:0px;display:none;
+              user-select:none;-o-user-select:none;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;}
+.qbBackground{background-color:#000;opacity:0.5;z-index:61;position:fixed;}
+.qbMessageScreen {cursor:pointer;width:400px;padding:5px;z-index:92;text-align:center;background-color:#bcd;}
+.qbGemArea{width:640px;height:320px;background-color:#0b0;z-index:40;}
+.qbContainer{width:640px;height:340px;}
+.qbStatistics{width:640px;}
+.qbGem{width:30px;height:30px;margin:1px;z-index:41;cursor:pointer;}
+.qbGem span{display:none;}
+.qbGem.gem1{background-color: #f00;}
+.qbGem.gem2{background-color: #0f0;}
+.qbGem.gem3{background-color: #00f;}
+.qbGem.gem4{background-color: #ff0;}
+
+
+.qbStatistics{font-weight:bold;z-index:63;padding:4px;text-align:center;}
+.qbStatField{float:left;position:relative;height:32px;line-height:32px;width:128px;}
+.qbStatField>div{display:inline-block;position:relative;height:32px;line-height:32px;text-align:center;}
+.qbStatField .desc{margin-right:6px;}
