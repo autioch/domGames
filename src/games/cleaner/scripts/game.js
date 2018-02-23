@@ -11,7 +11,7 @@ var qbLib = qbLib || {};
         GC = new q.qbContainer(config.id,true);
         GC.hideBorders().size(0, 0).present();
         /* Messages */
-        GC.splash = new q.qbMessageScreen(GC);
+        GC.splash = new q.qbConfirmMessage(GC);
         GC.splash.presentSpeed = 500;
         GC.splash.chain(config.story, initialize);
     };

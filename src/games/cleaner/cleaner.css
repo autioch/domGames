@@ -2,7 +2,7 @@
               user-select:none;-o-user-select:none;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;}
 .qbBackground{background-color:#aaa;opacity:0.5;z-index:61;position:fixed;}
 #cgc {background-color:#afa;z-index:62;font-size:12px;color:#030;font-family:Tahoma,Verdana,Arial;}
-#cgc .qbMessageScreen{background-color:#0e0;cursor:pointer;width:360px;z-index:92;padding:15px;}
+#cgc .qbConfirmMessage{background-color:#0e0;cursor:pointer;width:360px;z-index:92;padding:15px;}
 #cgc .qbMessageTitle{font-weight:bold;text-align:center;padding:5px;}
 #cgc .qbMessageExtra{padding-top:10px;}
 #cgc .qbMessageFollow{font-style:italic;padding-top:10px;}

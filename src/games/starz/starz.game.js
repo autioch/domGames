@@ -9,7 +9,7 @@ var qbLib = qbLib || {};
         bg = new q.qbBackground();
         bg.present();
 
-        splash = new q.qbMessageScreen();
+        splash = new q.qbConfirmMessage();
         splash.message('Starz', txt.welcome, '', '').follow(prepareEnviroment).present();
     }
 

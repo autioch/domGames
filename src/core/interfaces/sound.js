@@ -3,7 +3,7 @@
 import settings from '../settings';
 
 export default {
-  initSound(dir) {
+  init(dir) {
     this._dir = dir;
     this._sounds = {};
   },

@@ -2,9 +2,10 @@ import $ from 'jquery';
 import { random, remClassRegEx } from '../utils';
 
 export default {
-  initVisible(container) {
-    this.div = $('<div />')
-      .appendTo(container || $('body'))
+  init(container) {
+    this.div = $(document.createElement('div'));
+
+    this.div.appendTo(container || $('body'))
       .css({
         display: 'none',
         'user-select': 'none'

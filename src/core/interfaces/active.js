@@ -2,7 +2,7 @@ import EventMixin from './event';
 import { inherit } from '../utils';
 
 export default {
-  initActive() {
+  init() {
     this.paused = false;
     this.started = false;
     inherit(EventMixin, this);

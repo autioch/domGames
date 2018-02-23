@@ -37,7 +37,7 @@ ConfirmMessage.prototype = {
   },
   follow(callback) {
     this.div.off('click').on('click', () => {
-      this.div.unbind('click').stop().hide(0);
+      this.div.off('click').stop().hide(0);
       callback();
     });
 

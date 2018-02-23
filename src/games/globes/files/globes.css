@@ -6,11 +6,11 @@ body{border:0;margin:0}
               user-select:none;-o-user-select:none;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;}
 .qbBackground{background-color:#000;opacity:0.5;z-index:61;position:fixed;}
 #sgc {position:fixed;z-index:62;background-color:#bcd;font-family:Verdana,Tahoma,Arial;}
-#sgc .qbMessageScreen {cursor:pointer;width:400px;padding:5px;z-index:92;text-align:center;background-color:#bcd;}
-#sgc .qbMessageScreen .qbMessageTitle{font-weight:bold;padding-bottom:10px;}
-#sgc .qbMessageScreen table{border-collapse: collapse;width:100%;text-align:center;}
-#sgc .qbMessageScreen tbody tr:hover{background-color:#def;}
-#sgc .qbMessageScreen .qbMessageFollow{font-style:italic;padding-top:5px;}
+#sgc .qbConfirmMessage {cursor:pointer;width:400px;padding:5px;z-index:92;text-align:center;background-color:#bcd;}
+#sgc .qbConfirmMessage .qbMessageTitle{font-weight:bold;padding-bottom:10px;}
+#sgc .qbConfirmMessage table{border-collapse: collapse;width:100%;text-align:center;}
+#sgc .qbConfirmMessage tbody tr:hover{background-color:#def;}
+#sgc .qbConfirmMessage .qbMessageFollow{font-style:italic;padding-top:5px;}
 #sgc .qbBorderHorizontal{background:url('images/h.png') repeat-x;height:6px;z-index:90;}
 #sgc .qbBorderVertical{background:url('images/v.png') repeat-y;width:6px;z-index:90;}
 #sgc .qbGlobesArea{z-index:64;overflow: hidden;}

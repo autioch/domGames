@@ -1,7 +1,7 @@
 /* eslint no-underscore-dangle: 0 */
 
 export default {
-  initEvent() {
+  init() {
     this._listeners = this._listeners || {};
   },
   on(type, listener) {

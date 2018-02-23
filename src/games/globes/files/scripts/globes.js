@@ -228,7 +228,7 @@ var qbLib = qbLib || {};
         GC = new q.qbContainer(txt.id,true);
         GC.hideBorders().size(0, 0).present();
         GC.inline = false;
-        GC.splash = new q.qbMessageScreen(GC);
+        GC.splash = new q.qbConfirmMessage(GC);
         GC.splash.message(txt.wtitle, txt.wwelcome, txt.wextra, txt.follow).follow(initializePopup).present(gamec.present);
     };
 
@@ -283,7 +283,7 @@ var qbLib = qbLib || {};
         GC.hs = new qbHighscore();
         GC.hs.load(GC.cache.get('highscore'));
         GC.bindKeys(keysBind).present(gamec.present);
-        GC.splash = new q.qbMessageScreen(GC);
+        GC.splash = new q.qbConfirmMessage(GC);
         GC.splash.message(txt.wtitle, txt.wwelcome, txt.wextra, txt.follow).follow(startSplash).present(gamec.present);
     };
 

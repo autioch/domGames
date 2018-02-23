@@ -7,11 +7,11 @@
 #cgc .qbContainer{position:fixed;z-index:2;background-color:#afa;}
 #cgc .qbPlayArea{background-color:#0c0;z-index:3;}
 #cgc .qbPlayArea .qbMistDiv{background-color:#fff;opacity:0.3;z-index:89;}
-#cgc .qbMessageScreen{background-color:#0e0;cursor:pointer;width:360px;z-index:92;}
-#cgc .qbMessageScreen .qbMessageTitle{font-weight:bold;text-align:center;line-height:20px;padding:10px;}
-#cgc .qbMessageScreen .qbMessageContent{padding:10px;}
-#cgc .qbMessageScreen .qbMessageExtra{padding:10px;}
-#cgc .qbMessageScreen .qbMessageFollow{font-style:italic;padding:10px;}
+#cgc .qbConfirmMessage{background-color:#0e0;cursor:pointer;width:360px;z-index:92;}
+#cgc .qbConfirmMessage .qbMessageTitle{font-weight:bold;text-align:center;line-height:20px;padding:10px;}
+#cgc .qbConfirmMessage .qbMessageContent{padding:10px;}
+#cgc .qbConfirmMessage .qbMessageExtra{padding:10px;}
+#cgc .qbConfirmMessage .qbMessageFollow{font-style:italic;padding:10px;}
 #cgc .qbBorderHorizontal{background:url(images/layout/borderH.png) repeat-x;height:16px;z-index:91;}
 #cgc .qbBorderVertical{background:url(images/layout/borderV.png) repeat-y;width:16px;z-index:90;}
 #cgc .qbOptions{background-color:#afa;z-index:3;text-align:center;font-size:11px;line-height:14px;}

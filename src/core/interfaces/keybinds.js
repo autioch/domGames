@@ -9,8 +9,5 @@ export default {
     this.unbindKeys();
     this.currentKeys = newKeys;
     $(document).on('keydown.domGames', newKeys);
-  },
-  initKeybinds(keys) {
-    this.bindKeys(keys);
   }
 };
