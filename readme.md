@@ -1,8 +1,30 @@
-# Legacy code
-This is an old (2010-2011) code. It has some nice ideas that I might tackle with someday, but overall requires a lot of refactoring, or even complete rewrite.
+# globes-game
 
-The goal of the library was to provide simple components for creating simple, DOM based HTML games.
+*Work in progress.*
 
-However, with the emergence of the Canvas and Backbone I decided that this library could just extend Backbone and use canvas instead of DOM, so I stopped development.
 
-I decided to split the code using requirejs and updated dependencies, so one day I might actually return to the code.
+## Installation
+`npm i globes-game`
+
+## Usage
+
+```javascript
+
+const globesGame = require('globes-game');
+
+import  globesGame  from 'globes-game';
+
+```
+
+## Adding Preact
+1. Install packages:
+`npm i preact babel-plugin-transform-react-jsx`
+`npm i -D eslint-plugin-react`
+2. Modify `tools/webpack.config.js`. Add option to javascript loader:
+```javascript
+  plugins: [
+    ['transform-react-jsx', {
+      pragma: 'h'
+    }]
+]
+```

@@ -1,134 +1,105 @@
 const { join } = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 const autoprefixer = require('autoprefixer');
 
-const isProduction = process.argv.indexOf('-p') > -1;
-const isWatch = process.argv.indexOf('--watch') > -1;
-const projectRoot = join(__dirname, '..');
-const sourceRoot = join(projectRoot, 'src');
-const buildRoot = join(projectRoot, 'build');
+/* Setup */
+const IS_PRODUCTION = process.argv.indexOf('-p') > -1;
+const NAME_SUFFIX = new Date().getTime() + (IS_PRODUCTION ? '.min' : '');
+const PORT = 8080;
+const PATH_PROJECT = join(__dirname, '..');
+const PATH_SOURCE = join(PATH_PROJECT, 'src');
+const PATH_BUILD = join(PATH_PROJECT, 'docs');
+const PATH_ASSETS = 'assets';
+const PATH_DATA = 'data';
 
-const babelEnv = {
-  targets: {
-    browsers: ['last 2 versions'],
-    ie: 9 // eslint-disable-line no-magic-numbers
-  },
-  modules: false,
-  loose: true
-};
-
-const webpackConfig = {
-  watch: isWatch,
-  context: sourceRoot,
-  entry: ['babel-polyfill', join(sourceRoot, 'index')],
+const config = {
+  entry: join(PATH_SOURCE, 'index'),
   output: {
-    path: buildRoot,
-    filename: '[name].js'
+    path: PATH_BUILD,
+    filename: join(PATH_ASSETS, `[name]${NAME_SUFFIX}.js`)
   },
   resolve: {
-    extensions: ['.js', '.png', '.scss', '.css', '.jsx']
+    root: [PATH_SOURCE],
+    extensions: ['', '.js', '.scss']
   },
   module: {
-    rules: [{
+    loaders: [{
+      /* javascript */
       test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: [ ['env', babelEnv] ],
-          plugins: [ ['import', {
-            libraryName: 'antd',
-            style: 'css'
-          }] ]
-        }
+      include: [PATH_SOURCE],
+      loader: 'babel-loader',
+      query: {
+        cacheDirectory: true,
+        presets: [
+          ['env', {
+            loose: true
+          }]
+        ]
       }
     }, {
-      test: /\.jsx$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: [ ['env', babelEnv], 'react'],
-          plugins: [ ['import', {
-            libraryName: 'antd',
-            style: 'css'
-          }] ]
-        }
-      }
-    }, {
+      /* styles */
       test: /\.s?css$/,
-      use: ExtractTextPlugin.extract({
-        use: [{
-          loader: 'css-loader'
-        }, {
-          loader: 'postcss-loader',
-          options: {
-            plugins() {
-              return [autoprefixer];
-            }
-          }
-        }, {
-          loader: 'sass-loader'
-        }]
-      })
+      loader: ExtractTextPlugin.extract('style', ['css-loader', 'postcss-loader', 'sass-loader'])
     }, {
-      test: /\.(woff2|ttf|eot|woff|png|jpg)$/i,
-      loader: 'file-loader',
-      options: {
-        name: '[path][name].[ext]'
-      }
+      /* root static assets. */
+      test: /\.ico$/i,
+      loader: 'file?name=[name].[ext]'
+    }, {
+      /* static assets */
+      test: /\.woff$/i,
+      loader: `file?name=${join(PATH_ASSETS, '[name].[ext]')}`
+    }, {
+      /* data, config, mocks */
+      test: /\.json$/i,
+      loader: `file?name=${join(PATH_DATA, '[name].[ext]')}`
     }]
   },
+  plugins: [
+    new ExtractTextPlugin(join(PATH_ASSETS, `[name]${NAME_SUFFIX}.css`), {}),
+    new HtmlWebpackPlugin({
+      template: join(PATH_SOURCE, 'index.html'),
+      filename: 'index.html',
+      allChunks: true
+    }),
+    new CleanWebpackPlugin([PATH_BUILD], {
+      root: PATH_PROJECT,
+      verbose: false,
+      dry: false,
+      exclude: ['data']
+    })
+  ],
   stats: {
     children: false,
     hash: false,
     version: false,
-    colors: true,
-    maxModules: Infinity,
-    optimizationBailout: true
+    colors: true
   },
-  plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({
-      filename: '[name].css',
-      disable: false,
-      allChunks: true
-    }),
-    new HtmlWebpackPlugin({
-      template: join(sourceRoot, 'index.html'),
-      filename: 'index.html',
-      allChunks: true
-    }),
-    new CleanWebpackPlugin([buildRoot], {
-      root: projectRoot,
-      verbose: false,
-      dry: false
-    })
-  ]
+  postcss: () => [autoprefixer],
+  sassLoader: {
+    includePaths: [PATH_SOURCE]
+  }
 };
 
-if (isProduction) {
-  webpackConfig.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({}),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  );
-} else {
-  webpackConfig.devtool = 'eval-source-map';
-}
-
-if (isWatch) {
-  const LiveReloadPlugin = require('webpack-livereload-plugin');
-
-  webpackConfig.plugins.push(new LiveReloadPlugin({
+if (process.argv.indexOf('--watch') > -1) {
+  require('serve-local')(PATH_BUILD, PORT);
+  config.plugins.push(new LiveReloadPlugin({
     appendScriptTag: true,
-    ignore: /.(js|json|config|ico|woff|map|html)$/
+    ignore: /.(js|json|ico|woff)$/
   }));
-  require('serve-local')(buildRoot, 8080); // eslint-disable-line no-magic-numbers
 }
 
-module.exports = webpackConfig;
+if (IS_PRODUCTION) {
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }));
+} else {
+  config.devtool = '#eval';
+}
+
+module.exports = config;

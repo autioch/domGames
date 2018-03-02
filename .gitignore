@@ -1,3 +1,2 @@
-#ignore thumbnails created by windows
 node_modules/
-build/*
+test/

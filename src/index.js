@@ -1,1 +1,1 @@
-import shoort from './games/shooter';
+require('./styles');
