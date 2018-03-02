@@ -87,7 +87,7 @@ rules:
   no-color-keywords:
     - 1
   no-color-literals:
-    - 1
+    - 0
     - allow-map-identifiers: true
     - allow-rgba: false
     - allow-variable-identifiers: true
@@ -196,12 +196,7 @@ rules:
   url-quotes:
     - 1
   variable-for-property:
-    - 1
-    -
-      'properties':
-        - 'color'
-        - 'background-color'
-        - 'border-color'
+    - 0
   variable-name-format:
     - 1
     - convention: ^((is|has|m|s|c)-)?([a-z]+-?)+[a-z]+(__([a-z]+-?)+[a-z]+)?(--([a-z0-9]+-?)+([a-z0-9]+)?)?$

@@ -1,0 +1,222 @@
+#menu {
+  width: 400px;
+  text-align: center;
+  margin: 30px auto; }
+
+#menu > div {
+  padding: 5px; }
+
+.qbConfirmMessage {
+  padding: 0 15px;
+  background-color: #bcd;
+  font-family: Verdana, Tahoma, Arial;
+  text-align: center; }
+
+.qbConfirmMessage > p {
+  padding: 15px 0;
+  margin: 0; }
+
+.qbConfirmMessage table {
+  border-collapse: collapse;
+  width: 400px;
+  text-align: center; }
+
+.qbConfirmMessage tbody tr:hover {
+  background-color: #def; }
+
+.qbGameArea {
+  z-index: 11;
+  font-family: Verdana, Tahoma, Arial;
+  width: 580px;
+  height: 480px;
+  left: 60px;
+  overflow: hidden; }
+
+#sgc {
+  position: fixed;
+  z-index: 62;
+  background-color: #bcd;
+  font-family: Verdana, Tahoma, Arial;
+  width: 640px;
+  height: 480px; }
+
+.qbOptions {
+  z-index: 63;
+  text-align: center;
+  width: 60px;
+  height: 156px;
+  top: 4px; }
+
+.qbBackground {
+  background-color: #000;
+  opacity: 0.5; }
+
+#sgc > .qbBackground {
+  opacity: 1;
+  z-index: 0;
+  background: transparent center center no-repeat; }
+
+.qbStatistics {
+  font-weight: bold;
+  z-index: 63;
+  text-align: center;
+  width: 60px;
+  height: 316px;
+  top: 162px; }
+
+.qbStatField {
+  position: relative; }
+
+.qbStatField > .desc {
+  display: block;
+  height: 32px;
+  margin-top: 10px; }
+
+#qbStatactive > .desc {
+  background: url(active.png) center no-repeat; }
+
+#qbStathit > .desc {
+  background: url(hit.png) center no-repeat; }
+
+#qbStatlife > .desc {
+  background: url(life.png) center no-repeat; }
+
+#qbStatspeed > .desc {
+  background: url(speed.png) center no-repeat; }
+
+#qbStatpoints > .desc {
+  background: url(points.png) center no-repeat; }
+
+.qbBorderHorizontal {
+  background: url(horizontal.png) repeat-x;
+  height: 6px;
+  width: 100%;
+  z-index: 90;
+  border-radius: 3px; }
+
+.qbBorderVertical {
+  background: url(vertical.png) repeat-y;
+  height: 100%;
+  width: 6px;
+  z-index: 90;
+  border-radius: 3px; }
+
+.qbOptions {
+  z-index: 63;
+  text-align: center; }
+
+.qbOptionButton {
+  position: relative;
+  height: 52px;
+  margin: 0 5px; }
+
+#qbOptionsound {
+  background: url(soundOn.png) center no-repeat; }
+
+#qbOptionsound.checked {
+  background-image: url(soundOff.png); }
+
+#qbOptionpause {
+  background: url(pause.png) center no-repeat; }
+
+#qbOptionpause.checked {
+  background-image: url(play.png); }
+
+#qbOptionexit {
+  background: url(exit.png) center no-repeat; }
+
+.qbSplashMessage {
+  color: #f00;
+  font-weight: bold;
+  z-index: 93;
+  pointer-events: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  text-shadow: 1px 1px 2px black; }
+
+.qbTarget.type1 {
+  border-radius: 20px;
+  -webkit-box-shadow: 1px 1px 1px #aaa;
+          box-shadow: 1px 1px 1px #aaa;
+  width: 40px;
+  height: 40px;
+  background-image: url(type1.png); }
+
+.qbTarget.type2 {
+  border-radius: 20px;
+  -webkit-box-shadow: 1px 1px 1px #aaa;
+          box-shadow: 1px 1px 1px #aaa;
+  width: 40px;
+  height: 40px;
+  background-image: url(type2.png); }
+
+.qbTarget.type3 {
+  border-radius: 20px;
+  -webkit-box-shadow: 1px 1px 1px #aaa;
+          box-shadow: 1px 1px 1px #aaa;
+  width: 40px;
+  height: 40px;
+  background-image: url(type3.png); }
+
+.qbTarget.type4 {
+  border-radius: 20px;
+  -webkit-box-shadow: 1px 1px 1px #aaa;
+          box-shadow: 1px 1px 1px #aaa;
+  width: 40px;
+  height: 40px;
+  background-image: url(type4.png); }
+
+.qbTarget.type5 {
+  border-radius: 25px;
+  -webkit-box-shadow: 1px 1px 1px #aaa;
+          box-shadow: 1px 1px 1px #aaa;
+  width: 50px;
+  height: 50px;
+  background-image: url(type5.png); }
+
+.qbTarget.type6 {
+  border-radius: 30px;
+  -webkit-box-shadow: 1px 1px 1px #aaa;
+          box-shadow: 1px 1px 1px #aaa;
+  width: 60px;
+  height: 60px;
+  background-image: url(type6.png); }
+
+.qbTarget.type7 {
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  background-image: url(type7.png); }
+
+.qbTarget.type8 {
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  background-image: url(type8.png); }
+
+.qbTarget.type9 {
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  background-image: url(type9.png); }
+
+.qbTarget.type10 {
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  background-image: url(type10.png); }
+
+.qbTarget.type11 {
+  border-radius: 35px;
+  width: 70px;
+  height: 70px;
+  background-image: url(type11.png); }
+
+.qbTarget.type12 {
+  border-radius: 40px;
+  width: 80px;
+  height: 80px;
+  background-image: url(type12.png); }
+
+.qbTarget {
+  cursor: crosshair; }

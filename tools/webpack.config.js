@@ -24,7 +24,7 @@ const config = {
   },
   resolve: {
     root: [PATH_SOURCE],
-    extensions: ['', '.js', '.scss']
+    extensions: ['', '.js', '.scss', '.png']
   },
   module: {
     loaders: [{
@@ -46,7 +46,7 @@ const config = {
       loader: ExtractTextPlugin.extract('style', ['css-loader', 'postcss-loader', 'sass-loader'])
     }, {
       /* root static assets. */
-      test: /\.ico$/i,
+      test: /\.(ico|png)$/i,
       loader: 'file?name=[name].[ext]'
     }, {
       /* static assets */

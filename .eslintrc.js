@@ -1,4 +1,6 @@
 module.exports = {
   extends: 'qb',
-  rules: {}
+  rules: {
+    'id-length': ['off']
+  }
 };
