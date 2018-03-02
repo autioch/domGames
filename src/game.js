@@ -7,9 +7,11 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-alert */
-import qbLibrary from './library';
 import $ from 'jquery';
-import { Target, HighScore } from './classes';
+import { Target, HighScore, Background, ConfirmMessage, Box, GameArea, SplashMessage } from './classes';
+import { Borders, Sound, Keybinds } from './interfaces';
+import config from './config';
+import { random, inherit, prepareWindow, fillString } from './utils';
 
 export default function game(locale, difficulty) {
   let container;
@@ -21,44 +23,46 @@ export default function game(locale, difficulty) {
   const wallpaper = {};
   const bgi = 'background-image';
   const bgc = 'background-color';
-  const { config } = qbLibrary.globes;
   const setup = config.setups[difficulty];
   const texts = config.texts[locale];
-  const { random } = qbLibrary.utils;
 
-  const background = new qbLibrary.classes.background();
+  const background = new Background();
 
   background.present();
   const highscore = new HighScore(texts, difficulty);
 
-  qbLibrary.utils.prepareWindow();
+  prepareWindow();
 
-  const message = new qbLibrary.classes.confirmMessage();
+  const message = new ConfirmMessage();
 
-  qbLibrary.utils.inherit(qbLibrary.interfaces.borders, message);
-  message.addBorders(1, 1, 1, 1, true).centerAlways()
+  inherit(Borders, message);
+
+  message
+    .addBorders(1, 1, 1, 1, true)
+    .centerAlways()
     .text(texts.wtitle, texts.wwelcome, texts.wextra, texts.follow)
     .follow(initialize)
-    .resizeBorders()
-    .present();
+    .resizeBorders();
+
+  message.present();
 
   function initialize() {
-    container = new qbLibrary.classes.box();
+    container = new Box();
     container.div.attr('id', 'sgc');
-    qbLibrary.utils.inherit(qbLibrary.interfaces.sound, container, config.sounds.location);
-    qbLibrary.utils.inherit(qbLibrary.interfaces.keybinds, container, keybinds);
-    qbLibrary.utils.inherit(qbLibrary.interfaces.borders, container);
-    container.parseSounds(qbLibrary.globes.config.sounds.list);
+    inherit(Sound, container, config.sounds.location);
+    inherit(Keybinds, container, keybinds);
+    inherit(Borders, container);
+    container.parseSounds(config.sounds.list);
 
-    container._wallpaper = new qbLibrary.classes.background(container.div);
+    container._wallpaper = new background(container.div);
     container._wallpaper.div.css(bgi, `url('${config.wallpaper.location}002.jpg')`);
-    container._wallpaper2 = new qbLibrary.classes.background(container.div);
+    container._wallpaper2 = new background(container.div);
 
     wallpaper.secondActive = true;
     wallpaper.curColor = config.wallpaper.colors['001'];
     wallpaper.nextColor = config.wallpaper.colors['002'];
 
-    gamearea = new qbLibrary.classes.gameArea(container.div);
+    gamearea = new GameArea(container.div);
     gamearea.targets = [];
     gamearea.breaks = -1;
     gamearea.present();
@@ -69,23 +73,23 @@ export default function game(locale, difficulty) {
     timers.refresh = 0;
     timers.wallpaper = 0;
 
-    statistics = new qbLibrary.classes.statistics(container.div);
-    qbLibrary.utils.inherit(qbLibrary.interfaces.borders, statistics);
+    statistics = new statistics(container.div);
+    inherit(Borders, statistics);
     statistics.parseConfig(texts.stats).addBorders(0, 1, 0, 0, true).present();
     statistics.div.click(highscore.reset);
-    statistics._background = new qbLibrary.classes.background(statistics.div);
+    statistics._background = new background(statistics.div);
     statistics._background.present().div.css(bgc, '#fff');
 
-    options = new qbLibrary.classes.options(container.div);
-    qbLibrary.utils.inherit(qbLibrary.interfaces.borders, options);
+    options = new options(container.div);
+    inherit(Borders, options);
     options.parseConfig(texts.options).addBorders(0, 1, 1, 0, true).present();
     options.exit.click(gameExit);
     options.pause.click(gameToggle);
     options.sound.click(toggleSound);
-    options._background = new qbLibrary.classes.background(options.div);
+    options._background = new background(options.div);
     options._background.present().div.css(bgc, '#fff');
 
-    splashAlert = new qbLibrary.classes.splashMessage(container.div);
+    splashAlert = new SplashMessage(container.div);
     splashAlert.centerAlways();
     container.addBorders(1, 1, 1, 1, true).centerAlways().present(gamePrepare);
   }
@@ -192,8 +196,8 @@ export default function game(locale, difficulty) {
   }
 
   function toggleSound() {
-    options.sound.check(qbLibrary.settings.sound);
-    qbLibrary.settings.sound = !qbLibrary.settings.sound;
+    options.sound.check(container.muted);
+    container.muted = !container.muted;
   }
 
   function targetHit(target) {
@@ -285,7 +289,7 @@ export default function game(locale, difficulty) {
   }
 
   function setWallpaper() {
-    const img = qbLibrary.utils.fillString(random(13, 1), '0', 3);
+    const img = fillString(random(13, 1), '0', 3);
     const prev = wallpaper.secondActive ? container._wallpaper2 : container._wallpaper;
     const next = wallpaper.secondActive ? container._wallpaper : container._wallpaper2;
 
