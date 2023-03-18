@@ -40,7 +40,7 @@ var qbLib = qbLib || {};
             var rr = Math.round(Math.random() * (enemyDiff - 1)) + 1;
             var r = new q.qbEnemy(GC.game, 'enemy' + rr);
             r.div.click(function() {
-                alert('dupa');
+                // alert('dupa');
                 console.log(r,rr);
                 r.hit();
                 removeEnemy();

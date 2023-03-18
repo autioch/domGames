@@ -20,7 +20,7 @@ var qbLib = qbLib || {};
             'hitSound' : 'runnerHit.ogg'
         },
         id : 'cgc',
-        soundLocation : 'files/sounds/',
+        soundLocation : 'sounds/',
         gameId : 'playArea',
         startLevel : 1,
         maxLevel : 8,
