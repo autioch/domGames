@@ -1,4 +1,4 @@
-qbLibrary.globes = qbLibrary.globes || {};
+qbLibrary.globes ||= {};
 
 qbLibrary.globes.game = function(locale, difficulty) {
   let container;

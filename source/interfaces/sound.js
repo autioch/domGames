@@ -16,7 +16,7 @@ define(function(require, exports, module) {
           this._sounds[name] = a;
         }
       } catch (e) {
-        console.log(name, value, e.message);
+        console.warn(name, value, e.message);
       }
       return this;
     },
@@ -29,10 +29,10 @@ define(function(require, exports, module) {
             this._sounds[name].play();
           }
         } catch (e) {
-          console.log(name, e.message);
+          console.warn(name, e.message);
         }
       } else {
-        console.log(name, 'No such sound');
+        console.warn(name, 'No such sound');
       }
       return this;
     },

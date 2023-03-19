@@ -15,22 +15,22 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
 
     qb.addWave = function() {
       qb.gems[qb.waves] = [];
-      for (var i = 0; i < qb.sizeW; i++) {
+      for (let i = 0; i < qb.sizeW; i++) {
         const type = Math.round(Math.random() * (qb.types - 1)) + 1;
-        var gt = new qbGem(qb, type, qb.waves, i);
+        const gt = new qbGem(qb, type, qb.waves, i);
         qb.gems[qb.waves][i] = gt;
         gt.div.click(function() {
           qb.checkClick(gt.div);
         });
       }
       for (let j = 0; j <= qb.waves; j++) {
-        for (i = 0; i < qb.sizeW; i++) {
+        for (let i = 0; i < qb.sizeW; i++) {
           if (qb.gems[j][i]) {
             qb.gems[j][i].locate(qb.height - (qb.waves - j) * 32 - 32, i * 32).present();
           }
         }
       }
-      for (i = 0; i < qb.sizeW; i++) {
+      for (let i = 0; i < qb.sizeW; i++) {
         qb.gems[qb.waves][i].present(0);
       }
       qb.waves++;
@@ -40,9 +40,8 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
       const t = div.prop('t');
       const l = div.prop('l');
       const type = div.prop('type');
-      console.log(t, l, type);
       let remove = 0;
-      for (var i = t + 1; i < qb.waves; i++) {
+      for (let i = t + 1; i < qb.waves; i++) {
         if (qb.gems[i][l] && (type === qb.gems[i][l].type)) {
           qb.gems[i][l].div.addClass('remove');
           remove++;
@@ -51,7 +50,7 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
         }
       }
 
-      for (i = t - 1; i > 0; i--) {
+      for (let i = t - 1; i > 0; i--) {
         if (qb.gems[i][l] && (type === qb.gems[i][l].type)) {
           qb.gems[i][l].div.addClass('remove');
           remove++;
@@ -60,7 +59,7 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
         }
       }
 
-      for (i = l + 1; i < qb.sizeW; i++) {
+      for (let i = l + 1; i < qb.sizeW; i++) {
         if (qb.gems[t][i] && (type === qb.gems[t][i].type)) {
           qb.gems[t][i].div.addClass('remove');
           remove++;
@@ -69,7 +68,7 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
         }
       }
 
-      for (i = l - 1; i > 0; i--) {
+      for (let i = l - 1; i > 0; i--) {
         if (qb.gems[t][i] && (type === qb.gems[t][i].type)) {
           qb.gems[t][i].div.addClass('remove');
           remove++;
@@ -81,7 +80,7 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
       if (remove > 3) {
         qb.gems[t][l].div.remove();
         delete qb.gems[t][l];
-        for (i = 0; i < qb.waves; i++) {
+        for (let i = 0; i < qb.waves; i++) {
           for (let j = 0; j < qb.sizeW; j++) {
             if (qb.gems[i][j]) {
               if (qb.gems[i][j].div.hasClass('remove')) {

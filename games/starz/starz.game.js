@@ -6,6 +6,9 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
   let GC;
   let bg;
   let splash;
+  let enemy;
+  let starship;
+  let b;
   function initStarz() {
     bg = new q.qbBackground();
     bg.present();
@@ -41,8 +44,6 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
     splash.hide();
     enemy = [];
     enemyCount = 0;
-    bullets = [];
-    bulletCount = 0;
 
     // GC.stats.statWin.max(lvl[C].win);
     //    for (var i=0;i<lvl[C].win;i++){
@@ -61,10 +62,10 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
     const st = (GC.game.height - (h * 32) - 42) / 2;
     let l = sl;
     let t = st;
-    for (i = 0; i < h; i++) {
-      for (j = 0; j < w; j++) {
+    for (let i = 0; i < h; i++) {
+      for (let j = 0; j < w; j++) {
         if (map[i][j] != 0) {
-          en = new q.qbEnemy(GC.game, `enemy${map[i][j]}`);
+          const en = new q.qbEnemy(GC.game, `enemy${map[i][j]}`);
           en.locate(t, l).present(0);
           enemyCount++;
           enemy[enemyCount] = en;
@@ -96,13 +97,11 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
         if (!starship.moving) {
           starship.moveLeft(starship.stopMove);
         }
-        SML = true;
       }
       if (e.which == 68) {
         if (!starship.moving) {
           starship.moveRight(starship.stopMove);
         }
-        SMR = true;
       }
     });
 
@@ -152,15 +151,12 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
     }
   };
 
-  C = 0;
-  maxLvl = 2;
-  gameOver = false;
-  lvlWin = false;
-  gameId = 'starzArea';
-  splashSpeed = 1000;
-  enemyCount = 6;
-  SML = false;
-  SMR = true;
+  const C = 0;
+  const gameOver = false;
+  let lvlWin = false;
+  const gameId = 'starzArea';
+  const splashSpeed = 1000;
+  let enemyCount = 6;
 
   const txt = {
     gameWin: 'Wygrana!',
@@ -178,7 +174,7 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
     statTotalTitle: 'Razem: '
   };
 
-  map = [];
+  const map = [];
   map[0] = [0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0];
   map[1] = [0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0];
   map[2] = [0, 0, 0, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 0, 0, 0];

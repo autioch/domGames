@@ -8,15 +8,3 @@ require.config({
     // "lib4": "assets/js/lib/lib4"
   }
 });
-
-// start the app
-define(function(require) {
-  const classes = require('classes/index');
-  const interfaces = require('interfaces/index');
-  const settings = require('settings/index');
-  const utils = require('utils/index');
-  console.log(Object.getOwnPropertyNames(classes));
-  console.log(Object.getOwnPropertyNames(interfaces));
-  console.log(Object.getOwnPropertyNames(settings));
-  console.log(Object.getOwnPropertyNames(utils));
-});

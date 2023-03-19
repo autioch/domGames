@@ -1,4 +1,4 @@
-qbLibrary.globes = qbLibrary.globes || {};
+qbLibrary.globes ||= {};
 
 qbLibrary.globes.library = {
   target: function(container, type, age) {

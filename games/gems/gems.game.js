@@ -1,6 +1,8 @@
 var qbLib = qbLib || {};// eslint-disable-line no-var
 (function(q) {
   let GC;
+  let bg;
+  let splash;
   q.initGems = function() {
     bg = new q.qbBackground();
     bg.present();
@@ -36,14 +38,7 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
     splash.message('Gems', txt.gameOver, '', '').follow(location.reload).present();
   }
 
-  gameOver = false;
-  enemyDiff = 6;
-  max = 10;
-  acc = 0.95;
-  more = 3000;
-  speed_counter = 0;
-  speed_period = 5;
-  gameId = 'gemArea';
+  const max = 10;
 
   const txt = {
     gameWin: 'Wygrana!',

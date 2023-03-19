@@ -1,4 +1,4 @@
-qbLibrary.globes = qbLibrary.globes || {};
+qbLibrary.globes ||= {};
 
 qbLibrary.globes.config = {
   setups: {

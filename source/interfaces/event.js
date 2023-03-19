@@ -2,7 +2,7 @@ define(function(require, exports, module) {
   'use strict';
   module.exports = {
     initEvent: function() {
-      this._listeners = this._listeners || {};
+      this._listeners ||= {};
     },
     on: function(type, listener) {
       if (this._listeners[type]) {

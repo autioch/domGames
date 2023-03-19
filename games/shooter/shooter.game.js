@@ -3,6 +3,9 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
   let GC;
   let bg;
   let splash;
+  let enemy;
+  let enemyCount;
+  let stats; // todo it's not defined!
 
   q.initShooter = initShooter;
 
@@ -41,8 +44,6 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
       const rr = Math.round(Math.random() * (enemyDiff - 1)) + 1;
       const r = new q.qbEnemy(GC.game, `enemy${rr}`);
       r.div.click(function() {
-        // alert('dupa');
-        console.log(r, rr);
         r.hit();
         removeEnemy();
       });
@@ -79,14 +80,14 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
     }
   }
 
-  gameOver = false;
-  enemyDiff = 6;
-  max = 50;
-  acc = 0.95;
-  more = 3000;
-  speed_counter = 0;
-  speed_period = 5;
-  gameId = 'shooterArea';
+  let gameOver = false;
+  const enemyDiff = 6;
+  const max = 50;
+  const acc = 0.95;
+  let more = 3000;
+  let speed_counter = 0;
+  const speed_period = 5;
+  const gameId = 'shooterArea';
   const txt = {
     gameOver: 'Koniec gry!',
     follow: 'Kliknij, aby rozpocząć...',

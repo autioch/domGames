@@ -4,7 +4,7 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
   q.qbBin = qbBin;
   q.qbPlayArea = qbPlayArea;
   q.qbRunner = qbRunner;
-  random = q.random; // eslint-disable-line prefer-destructuring
+  const { random } = q;
   function qbTrash(qbContainer, qbBin, size) {
     q.qbGameObject.call(this, qbContainer);
 
@@ -55,11 +55,11 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
     qb._flowers = [];
     qb._grass = [];
     qb.flourish = function(grass, flowers) {
-      for (var i = 0; i < grass; i++) {
+      for (let i = 0; i < grass; i++) {
         qb._grass[i] = new qbGrassDecoration(qb);
       }
 
-      for (i = 0; i < flowers; i++) {
+      for (let i = 0; i < flowers; i++) {
         qb._flowers[i] = new qbFlowerDecoration(qb);
       }
 
@@ -96,21 +96,21 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
     qb.runnerDispose = function() {
     };
     qb.reset = function() {
-      for (var i in qb.runners) {
+      for (const i in qb.runners) {
         qb.runners[i].dispose();
         delete qb.runners[i];
       }
 
       qb.runnersCount = 0;
       qb.runners = [];
-      for (i in qb.bins) {
+      for (const i in qb.bins) {
         qb.bins[i].dispose();
         delete qb.bins[i];
       }
 
       qb.binsCount = 0;
       qb.bins = [];
-      for (i in qb.trashes) {
+      for (const i in qb.trashes) {
         qb.trashes[i].dispose();
         delete qb.trashes[i];
       }

@@ -8,11 +8,12 @@ module.exports = {
     commonjs: true
   },
   globals: {
-    $: 'true'
+    $: true,
+    qbLibrary: true,
+    qbLib: true
   },
   rules: {
     'array-callback-return': ['off'],
-    'block-scoped-var': ['off'],
     'consistent-return': ['off'],
     'consistent-this': ['off'],
     'default-case': ['off'],
@@ -21,7 +22,6 @@ module.exports = {
     'guard-for-in': ['off'],
     'id-denylist': ['off'],
     'id-length': ['off'],
-    'logical-assignment-operators': ['off'],
     'max-depth': ['off'],
     'max-len': ['off'],
     'max-lines-per-function': ['off'],
@@ -32,19 +32,15 @@ module.exports = {
     'new-cap': ['off'],
     'newline-per-chained-call': ['off'],
     'no-alert': ['off'],
-    'no-console': ['off'],
     'no-empty-function': ['off'],
     'no-inner-declarations': ['off'],
     'no-invalid-this': ['off'],
-    'no-loop-func': ['off'],
     'no-magic-numbers': ['off'],
     'no-mixed-operators': ['off'],
     'no-plusplus': ['off'],
     'no-shadow': ['off'], // ['error', { allow: ['require', 'exports', 'module'] }], // eslint-disable-line
-    'no-undef': ['off'],
     'no-undefined': ['off'],
     'no-underscore-dangle': ['off'],
-    'no-unmodified-loop-condition': ['off'],
     'no-unused-expressions': ['off'],
     'no-use-before-define': ['off'],
     'no-useless-escape': ['off'],
@@ -53,8 +49,6 @@ module.exports = {
     'padding-line-between-statements': ['off'],
     'prefer-arrow-callback': ['off'],
     'require-unicode-regexp': ['off'],
-    'sort-vars': ['off'],
-    'vars-on-top': ['off'],
     camelcase: ['off'],
     complexity: ['off']
   }

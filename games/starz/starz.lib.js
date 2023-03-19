@@ -17,11 +17,11 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
     this.space.galaxy = [];
 
     this.bigBang = function(stars, galaxy) {
-      for (i = 0; i < stars; i++) {
+      for (let i = 0; i < stars; i++) {
         self.space.stars[i] = new qbStars(self);
         self.space.stars[i].locateRandom().present(1000);
       }
-      for (i = 0; i < galaxy; i++) {
+      for (let i = 0; i < galaxy; i++) {
         self.space.galaxy[i] = new qbGalaxy(self);
         self.space.galaxy[i].locateRandom().present(1000);
       }
