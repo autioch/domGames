@@ -1,6 +1,6 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {};// eslint-disable-line no-var
 (function(q) {
-  var config = {
+  const config = {
     pc: {
       freq: 900,
       freqAccel: 0.9,
@@ -137,12 +137,15 @@ var qbLib = qbLib || {};
       }
     }
   };
-  var txt = config.text;
-  var gamec = config.pc;
-  var GC, bg, tsb, mobile;
+  const txt = config.text;
+  const gamec = config.pc;
+  let GC;
+  let bg;
+  let tsb;
+  let mobile;
   function qbTarget(qbContainer, type) {
     q.qbGameObject.call(this, qbContainer);
-    var qb = this;
+    const qb = this;
     qb.prop('type', type);
     qb.ageLeft = gamec.age;
     qb.green = function(c) {
@@ -181,11 +184,11 @@ var qbLib = qbLib || {};
 
   function qbGlobesArea(qbContainer) {
     q.qbGameArea.call(this, qbContainer);
-    var qb = this;
+    const qb = this;
     qb.targets = [];
     qb.targetCount = 0;
     function niceReset() {
-      for (var i in qb.targets) {
+      for (const i in qb.targets) {
         if (!qb.targets[i].disposed) {
           qb.targets[i].slide();
         }
@@ -199,7 +202,7 @@ var qbLib = qbLib || {};
     }
 
     function quickReset() {
-      for (var i in qb.targets) {
+      for (const i in qb.targets) {
         qb.targets[i].dispose();
         delete qb.targets[i];
       }
@@ -214,8 +217,8 @@ var qbLib = qbLib || {};
     qb._targetTimer = 0;
     qb.addTarget = function() {
       if (!qb.paused) {
-        var r = Math.random() > gamec.bonus ? q.random(2, 1) : q.random(gamec.types, 3);
-        var t = new qbTarget(qb, r + gamec.msize);
+        const r = Math.random() > gamec.bonus ? q.random(2, 1) : q.random(gamec.types, 3);
+        const t = new qbTarget(qb, r + gamec.msize);
         qb.targets[++qb.targetCount] = t;
         t.locateRandom().present(gamec.present);
         GC.stats.active.valInc();
@@ -225,7 +228,7 @@ var qbLib = qbLib || {};
     qb._refreshTimer = 0;
     qb.refreshTargets = function() {
       if (!qb.paused) {
-        for (var a in qb.targets) {
+        for (const a in qb.targets) {
           if (!qb.targets[a].disposed && qb.targets[a].active) {
             qb.targets[a].age();
           }
@@ -260,7 +263,7 @@ var qbLib = qbLib || {};
   }
 
   function qbHighscore() {
-    var qb = this;
+    const qb = this;
     qb.score = [];
     qb.add = function(points, hits, pause, speed) {
       qb.score.push([points, hits, pause, speed]);
@@ -273,8 +276,8 @@ var qbLib = qbLib || {};
     };
     qb._title = `<table><thead><tr><th>${config.text.hs.join('</th><th>')}</th></tr></thead><tbody>`;
     qb.get = function() {
-      var result = qb._title;
-      for (var i in qb.score) {
+      let result = qb._title;
+      for (const i in qb.score) {
         result += `<tr><td>${qb.score[i].join('</td><td>')}</td></tr>`;
       }
 
@@ -441,8 +444,8 @@ var qbLib = qbLib || {};
       GC.game.stop();
       GC.sounds.soundGameOver();
       alert(txt.gameover);
-      var m = txt.otext.replace('%d', GC.stats.hit.val()).replace('%d', GC.stats.points.val());
-      var e = txt.oextra.replace('%d', GC.game.breaks);
+      const m = txt.otext.replace('%d', GC.stats.hit.val()).replace('%d', GC.stats.points.val());
+      const e = txt.oextra.replace('%d', GC.game.breaks);
       GC.splash.message(txt.gameover, m, e).follow(showHighscore).present();
     }
   }

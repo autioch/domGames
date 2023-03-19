@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
   'use strict';
-  var Event = require('interfaces/event');
-  var inherit = require('utils/inherit');
+  const Event = require('interfaces/event');
+  const inherit = require('utils/inherit');
 
   module.exports = {
     initActive: function() {

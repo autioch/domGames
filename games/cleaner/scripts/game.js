@@ -1,8 +1,10 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {};// eslint-disable-line no-var
 (function(q) {
-  var config = q.qbCleanerConfig;
-  var policeTimer = 0;
-  var C, GC, bg;
+  const config = q.qbCleanerConfig;
+  let policeTimer = 0;
+  let C;
+  let GC;
+  let bg;
 
   q.cleanerInit = function() {
     bg = new q.qbBackground();
@@ -127,8 +129,8 @@ var qbLib = qbLib || {};
     GC.game.level.actions.school ? GC.options.cschool.div.show() : GC.options.cschool.div.hide();
     GC.game.level.actions.comunal ? GC.options.ccomunal.div.show() : GC.options.ccomunal.div.hide();
     GC.game.level.actions.grass ? GC.options.cgrass.div.show() : GC.options.cgrass.div.hide();
-    var m = `<div>${config.txt.lvlWin}${GC.game.level.win}</div><div>${config.txt.lvlMax}${GC.game.level.max}</div>`;
-    var e = GC.game.level.text || '';
+    const m = `<div>${config.txt.lvlWin}${GC.game.level.win}</div><div>${config.txt.lvlMax}${GC.game.level.max}</div>`;
+    const e = GC.game.level.text || '';
     GC.game.reset();
     GC.splash.message(`Poziom ${C}`, m, e, config.txt.follow).follow(GC.game.start).present();
   }
@@ -180,7 +182,7 @@ var qbLib = qbLib || {};
     }
 
     GC.stats.cpoints.valDec(5);
-    for (var tItem in GC.game.trashes) {
+    for (const tItem in GC.game.trashes) {
       if ((GC.game.trashes[tItem].size == 1) && !GC.game.trashes[tItem].disposed) {
         GC.game.trashes[tItem].dispose();
         GC.stats.cmax.valDec();
@@ -205,9 +207,9 @@ var qbLib = qbLib || {};
       return;
     }
 
-    var type = q.random(GC.game.binsCount, 1);
+    const type = q.random(GC.game.binsCount, 1);
     GC.stats.cpoints.valDec(8);
-    for (var tItem in GC.game.trashes) {
+    for (const tItem in GC.game.trashes) {
       if ((GC.game.trashes[tItem].type == type) && !GC.game.trashes[tItem].disposed) {
         GC.game.trashes[tItem].dispose();
         GC.stats.cmax.valDec();

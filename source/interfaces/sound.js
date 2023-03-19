@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
   'use strict';
 
-  var settings = require('settings/index.js');
+  const settings = require('settings/index.js');
 
   module.exports = {
     initSound: function(dir) {
@@ -10,7 +10,7 @@ define(function(require, exports, module) {
     },
     addSound: function(name, value) {
       try {
-        var a = new Audio();
+        const a = new Audio();
         if (a.canPlayType(`audio/${value.split('.').pop()}`) !== '') {
           a.src = this._dir + value;
           this._sounds[name] = a;
@@ -37,7 +37,7 @@ define(function(require, exports, module) {
       return this;
     },
     parseSounds: function(config) {
-      for (var i in config) {
+      for (const i in config) {
         this.addSound(i, config[i]);
       }
       return this;

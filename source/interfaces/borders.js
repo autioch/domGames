@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
   'use strict';
-  var Visible = require('interfaces/visible');
-  var inherit = require('utils/inherit');
+  const Visible = require('interfaces/visible');
+  const inherit = require('utils/inherit');
 
   function BorderVertical(container) {
     inherit(Visible, this, container);
@@ -40,7 +40,7 @@ define(function(require, exports, module) {
         this._bh = this._borders.t.height / 2;
       }
 
-      var oldRefresh = this.refresh;
+      const oldRefresh = this.refresh;
       this.refresh = function() {
         oldRefresh();
         this.resizeBorders();
@@ -57,13 +57,13 @@ define(function(require, exports, module) {
       return this;
     },
     hideBorders: function() {
-      for (var b in this._borders) {
+      for (const b in this._borders) {
         this._borders[b].div.hide(0);
       }
       return this;
     },
     showBorders: function() {
-      for (var b in this._borders) {
+      for (const b in this._borders) {
         this._borders[b].div.show(0);
       }
       return this;

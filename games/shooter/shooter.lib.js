@@ -1,4 +1,4 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {}; // eslint-disable-line no-var
 
 (function(q) {
   q.qbShooterArea = qbShooterArea;
@@ -7,14 +7,14 @@ var qbLib = qbLib || {};
 
   function qbShooterArea(qbContainer, qbId) {
     q.qbGameObject.call(this, qbContainer);
-    var qb = this;
+    const qb = this;
 
     qb.div.attr('id', qbId);
     qb.furniture = [];
     qb.furniture.desk = [];
 
     this.furnish = function(desk) {
-      for (var i = 0; i < desk; i++) {
+      for (let i = 0; i < desk; i++) {
         qb.furniture.desk[i] = new qbDesk(qb);
         qb.furniture.desk[i].locateRandom().present(1000);
       }
@@ -27,7 +27,7 @@ var qbLib = qbLib || {};
 
   function qbEnemy(qbContainer, qbEnemyType) {
     q.qbGameObject.call(this, qbContainer);
-    var qb = this;
+    const qb = this;
 
     qb.type = qbEnemyType;
     qb.div.addClass(qb.type);

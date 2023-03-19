@@ -1,4 +1,4 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {}; // eslint-disable-line no-var
 
 (function(q) {
   q.qbStarzArea = qbStarzArea;
@@ -10,7 +10,7 @@ var qbLib = qbLib || {};
 
   function qbStarzArea(qbContainer) {
     q.qbGameObject.call(this, qbContainer);
-    var self = this;
+    const self = this;
 
     this.space = [];
     this.space.stars = [];
@@ -38,12 +38,12 @@ var qbLib = qbLib || {};
 
   function qbStarship(qbContainer) {
     q.qbGameObject.call(this, qbContainer);
-    var self = this;
+    const self = this;
     this.stop = false;
     this.moving = false;
 
     this.moveLeft = function(callback) {
-      var l = parseInt(self.div.css('left'), 10) - 10;
+      let l = parseInt(self.div.css('left'), 10) - 10;
       l = Math.max(l, 0);
       self.moving = true;
       self.div.animate({
@@ -54,7 +54,7 @@ var qbLib = qbLib || {};
     };
 
     this.moveRight = function(callback) {
-      var l = parseInt(self.div.css('left'), 10) + 10;
+      let l = parseInt(self.div.css('left'), 10) + 10;
       l = Math.min(l, self.container.width - self.width);
       self.moving = true;
       self.div.animate({
@@ -72,7 +72,7 @@ var qbLib = qbLib || {};
 
   function qbBullet(qbContainer, qbShip) {
     q.qbGameObject.call(this, qbContainer);
-    var self = this;
+    const self = this;
     this.ship = qbShip;
 
     // check for collision on each step
@@ -90,7 +90,7 @@ var qbLib = qbLib || {};
 
   function qbEnemy(qbContainer, qbEnemyType) {
     q.qbGameObject.call(this, qbContainer);
-    var self = this;
+    const self = this;
 
     this.type = qbEnemyType;
     this.div.addClass(self.type);

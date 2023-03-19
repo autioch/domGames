@@ -1,9 +1,11 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {}; // eslint-disable-line no-var
 
 (function(q) {
   q.initStarz = initStarz;
 
-  var GC, bg, splash;
+  let GC;
+  let bg;
+  let splash;
   function initStarz() {
     bg = new q.qbBackground();
     bg.present();
@@ -53,12 +55,12 @@ var qbLib = qbLib || {};
   }
 
   function addEnemy() {
-    var h = map.length;
-    var w = map[0].length;
-    var sl = (GC.game.width - (w * 32)) / 2;
-    var st = (GC.game.height - (h * 32) - 42) / 2;
-    var l = sl;
-    var t = st;
+    const h = map.length;
+    const w = map[0].length;
+    const sl = (GC.game.width - (w * 32)) / 2;
+    const st = (GC.game.height - (h * 32) - 42) / 2;
+    let l = sl;
+    let t = st;
     for (i = 0; i < h; i++) {
       for (j = 0; j < w; j++) {
         if (map[i][j] != 0) {
@@ -75,7 +77,7 @@ var qbLib = qbLib || {};
   }
 
   function moveEnemy() {
-    var m = Math.random() * 64 - 32;
+    const m = Math.random() * 64 - 32;
     enemy.map(function(e) {
       e.div.css({
         left: parseInt(e.div.css('left'), 10) + m
@@ -138,7 +140,7 @@ var qbLib = qbLib || {};
   //     alert(txt.gameWin);
   // }
 
-  var lvl = {
+  const lvl = {
     '0': {
       win: 3
     },
@@ -160,7 +162,7 @@ var qbLib = qbLib || {};
   SML = false;
   SMR = true;
 
-  var txt = {
+  const txt = {
     gameWin: 'Wygrana!',
     gameOver: 'Zostałeś trafiony! Koniec gry!',
     follow: 'Kliknij, aby kontynuować...',

@@ -1,4 +1,4 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {};// eslint-disable-line no-var
 (function(q) {
   q.qbCleanerConfig = {
     txt: {

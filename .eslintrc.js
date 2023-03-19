@@ -50,8 +50,6 @@ module.exports = {
     'no-useless-escape': ['off'],
     'no-var': ['off'],
     'object-shorthand': ['off'],
-    'one-var-declaration-per-line': ['off'],
-    'one-var': ['off'],
     'padding-line-between-statements': ['off'],
     'prefer-arrow-callback': ['off'],
     'require-unicode-regexp': ['off'],

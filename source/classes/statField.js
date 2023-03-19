@@ -1,8 +1,8 @@
 define(function(require, exports, module) {
   'use strict';
-  var Visible = require('interfaces/visible');
-  var inherit = require('utils/inherit');
-  var isset = require('utils/isset');
+  const Visible = require('interfaces/visible');
+  const inherit = require('utils/inherit');
+  const isset = require('utils/isset');
 
   function StatField(container) {
     inherit(Visible, this, container);
@@ -58,7 +58,7 @@ define(function(require, exports, module) {
       return this;
     },
     parseStatField: function(array) {
-      for (var a in array) {
+      for (const a in array) {
         if (isset(this[a]) && (typeof this[a] !== 'function')) {
           // TODO
           this[a] = array[a];

@@ -1,8 +1,8 @@
 define(function(require, exports, module) {
   'use strict';
 
-  var random = require('utils/random');
-  var remClassRegEx = require('utils/remClassRegEx');
+  const random = require('utils/random');
+  const remClassRegEx = require('utils/remClassRegEx');
 
   module.exports = {
     initVisible: function(container) {
@@ -61,7 +61,7 @@ define(function(require, exports, module) {
     dispose: function(recursive) {
       this.div.remove();
       if (recursive) {
-        for (var i in this) {
+        for (const i in this) {
           if (this[i].dispose) {
             this[i].dispose(true);
           }
@@ -72,7 +72,7 @@ define(function(require, exports, module) {
       return this;
     },
     present: function(speed, callback) {
-      var c;
+      let c;
       switch (typeof speed) {
         case 'undefined':
           c = undefined;

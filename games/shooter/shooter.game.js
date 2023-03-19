@@ -1,6 +1,8 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {}; // eslint-disable-line no-var
 (function(q) {
-  var GC, bg, splash;
+  let GC;
+  let bg;
+  let splash;
 
   q.initShooter = initShooter;
 
@@ -36,8 +38,8 @@ var qbLib = qbLib || {};
   function addEnemy() {
     if (!gameOver) {
       enemyCount++;
-      var rr = Math.round(Math.random() * (enemyDiff - 1)) + 1;
-      var r = new q.qbEnemy(GC.game, `enemy${rr}`);
+      const rr = Math.round(Math.random() * (enemyDiff - 1)) + 1;
+      const r = new q.qbEnemy(GC.game, `enemy${rr}`);
       r.div.click(function() {
         // alert('dupa');
         console.log(r, rr);
@@ -68,7 +70,7 @@ var qbLib = qbLib || {};
 
   function checkLose() {
     if (GC.stats.val('max') > max) {
-      for (var bItem in enemy) {
+      for (const bItem in enemy) {
         enemy[bItem].hit();
       }
       enemy = null;
@@ -85,7 +87,7 @@ var qbLib = qbLib || {};
   speed_counter = 0;
   speed_period = 5;
   gameId = 'shooterArea';
-  var txt = {
+  const txt = {
     gameOver: 'Koniec gry!',
     follow: 'Kliknij, aby rozpocząć...',
     shot: 'Ustrzelone: ',

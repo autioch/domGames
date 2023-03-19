@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
   'use strict';
-  var Visible = require('interfaces/visible');
-  var inherit = require('utils/inherit');
+  const Visible = require('interfaces/visible');
+  const inherit = require('utils/inherit');
 
   function Clock(container) {
     inherit(Visible, this, container);
@@ -14,10 +14,10 @@ define(function(require, exports, module) {
       return i < 10 ? `0${i}` : i;
     },
     start: function() {
-      var h, m, s, now = new Date();
-      h = now.getHours();
-      m = this.format(now.getMinutes());
-      s = this.format(now.getSeconds());
+      const now = new Date();
+      const h = now.getHours();
+      const m = this.format(now.getMinutes());
+      const s = this.format(now.getSeconds());
       this.div.html(`${h}:${m}:${s}`);
       this.timeout = setTimeout(function() {
         if (this && !this.disposed) {

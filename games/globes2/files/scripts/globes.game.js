@@ -1,20 +1,27 @@
 qbLibrary.globes = qbLibrary.globes || {};
 
 qbLibrary.globes.game = function(locale, difficulty) {
-  var background, container, gamearea, options, statistics, splashAlert, message;
-  var highscore, timers = {}, wallpaper = {}, bgi = 'background-image', bgc = 'background-color';
-  var { config } = qbLibrary.globes;
-  var setup = qbLibrary.globes.config.setups[difficulty];
-  var texts = qbLibrary.globes.config.texts[locale];
-  var { random } = qbLibrary.utils;
+  let container;
+  let gamearea;
+  let options;
+  let statistics;
+  let splashAlert;
+  const timers = {};
+  const wallpaper = {};
+  const bgi = 'background-image';
+  const bgc = 'background-color';
+  const { config } = qbLibrary.globes;
+  const setup = qbLibrary.globes.config.setups[difficulty];
+  const texts = qbLibrary.globes.config.texts[locale];
+  const { random } = qbLibrary.utils;
 
-  background = new qbLibrary.classes.background();
+  const background = new qbLibrary.classes.background();
   background.present();
-  highscore = new qbLibrary.globes.library.highscore(texts, difficulty);
+  const highscore = new qbLibrary.globes.library.highscore(texts, difficulty);
 
   qbLibrary.utils.prepareWindow();
 
-  message = new qbLibrary.classes.confirmMessage();
+  const message = new qbLibrary.classes.confirmMessage();
   qbLibrary.utils.inherit(qbLibrary.interfaces.borders, message);
   message.addBorders(1, 1, 1, 1, true).centerAlways()
     .text(texts.wtitle, texts.wwelcome, texts.wextra, texts.follow).follow(initialize)
@@ -84,7 +91,7 @@ qbLibrary.globes.game = function(locale, difficulty) {
 
   function gamePrepare() {
     gamearea.breaks = -1; // koniec gry oznacza też pauze :D
-    for (var i in gamearea.targets) {
+    for (const i in gamearea.targets) {
       if (!gamearea.targets[i].disposed) {
         gamearea.targets[i].slide();
       }
@@ -138,8 +145,8 @@ qbLibrary.globes.game = function(locale, difficulty) {
     gamearea.stop();
     container.playSound('gameOver');
     highscore.add(statistics.points.val(), statistics.hit.val(), gamearea.breaks, statistics.speed.val());
-    var m = texts.otext.replace('%d', statistics.hit.val()).replace('%d', statistics.points.val());
-    var e = texts.oextra.replace('%d', gamearea.breaks);
+    const m = texts.otext.replace('%d', statistics.hit.val()).replace('%d', statistics.points.val());
+    const e = texts.oextra.replace('%d', gamearea.breaks);
     message.text(texts.gameover, m, e).follow(showHighscore).present();
   }
 
@@ -225,9 +232,9 @@ qbLibrary.globes.game = function(locale, difficulty) {
 
   function addTarget() {
     if (!gamearea.paused) {
-      var r = Math.random() > setup.bonus ? random(3, 1) : random(setup.types, 4);
+      const r = Math.random() > setup.bonus ? random(3, 1) : random(setup.types, 4);
       qbLibrary.settings.debug && qbLibrary.utils.log(r);
-      var t = new qbLibrary.globes.library.target(gamearea.div, r + setup.msize, setup.age);
+      const t = new qbLibrary.globes.library.target(gamearea.div, r + setup.msize, setup.age);
       gamearea.targets.push(t);
       t.on('hit', targetHit).on('age', targetAge).locateRandom().present();
       statistics.active.valInc();
@@ -242,7 +249,7 @@ qbLibrary.globes.game = function(locale, difficulty) {
   }
 
   function refreshTargets() {
-    for (var a in gamearea.targets) {
+    for (const a in gamearea.targets) {
       if (!gamearea.targets[a].disposed && gamearea.targets[a].active) {
         gamearea.targets[a].age();
       }
@@ -250,9 +257,9 @@ qbLibrary.globes.game = function(locale, difficulty) {
   }
 
   function setWallpaper() {
-    var next, prev, img = qbLibrary.utils.fillString(random(13, 1), '0', 3);
-    prev = wallpaper.secondActive ? container._wallpaper2 : container._wallpaper;
-    next = wallpaper.secondActive ? container._wallpaper : container._wallpaper2;
+    const img = qbLibrary.utils.fillString(random(13, 1), '0', 3);
+    const prev = wallpaper.secondActive ? container._wallpaper2 : container._wallpaper;
+    const next = wallpaper.secondActive ? container._wallpaper : container._wallpaper2;
     $('.qbBorderVertical').css(bgc, wallpaper.nextColor);
     $('.qbBorderHorizontal').css(bgc, wallpaper.nextColor);
     prev.div.fadeOut(1000, function() {

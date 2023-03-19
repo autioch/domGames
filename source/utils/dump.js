@@ -2,9 +2,8 @@ define(function(require, exports, module) {
   'use strict';
 
   module.exports = function(item, withValue) {
-    var d, acc;
-    d = item || qbLibrary;
-    acc = [];
+    const d = item || qbLibrary;
+    const acc = [];
     $.each(d, function(index, value) {
       acc.push(index + (withValue ? ` : ${value}` : ` : ${typeof value}`));
     });

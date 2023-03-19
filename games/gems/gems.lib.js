@@ -1,11 +1,11 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {};// eslint-disable-line no-var
 (function(q) {
   q.qbGemArea = qbGemArea;
   q.qbGem = qbGem;
 
   function qbGemArea(qbContainer, qbId) {
     q.qbGameObject.call(this, qbContainer);
-    var qb = this;
+    const qb = this;
     qb.gems = [];
     qb.div.attr('id', qbId);
     qb.waves = 0;
@@ -16,14 +16,14 @@ var qbLib = qbLib || {};
     qb.addWave = function() {
       qb.gems[qb.waves] = [];
       for (var i = 0; i < qb.sizeW; i++) {
-        var type = Math.round(Math.random() * (qb.types - 1)) + 1;
+        const type = Math.round(Math.random() * (qb.types - 1)) + 1;
         var gt = new qbGem(qb, type, qb.waves, i);
         qb.gems[qb.waves][i] = gt;
         gt.div.click(function() {
           qb.checkClick(gt.div);
         });
       }
-      for (var j = 0; j <= qb.waves; j++) {
+      for (let j = 0; j <= qb.waves; j++) {
         for (i = 0; i < qb.sizeW; i++) {
           if (qb.gems[j][i]) {
             qb.gems[j][i].locate(qb.height - (qb.waves - j) * 32 - 32, i * 32).present();
@@ -37,9 +37,11 @@ var qbLib = qbLib || {};
     };
 
     qb.checkClick = function(div) {
-      var t = div.prop('t'), l = div.prop('l'), type = div.prop('type');
+      const t = div.prop('t');
+      const l = div.prop('l');
+      const type = div.prop('type');
       console.log(t, l, type);
-      var remove = 0;
+      let remove = 0;
       for (var i = t + 1; i < qb.waves; i++) {
         if (qb.gems[i][l] && (type === qb.gems[i][l].type)) {
           qb.gems[i][l].div.addClass('remove');
@@ -80,7 +82,7 @@ var qbLib = qbLib || {};
         qb.gems[t][l].div.remove();
         delete qb.gems[t][l];
         for (i = 0; i < qb.waves; i++) {
-          for (var j = 0; j < qb.sizeW; j++) {
+          for (let j = 0; j < qb.sizeW; j++) {
             if (qb.gems[i][j]) {
               if (qb.gems[i][j].div.hasClass('remove')) {
                 qb.gems[i][j].div.remove();
@@ -115,7 +117,7 @@ var qbLib = qbLib || {};
   function qbGem(qbContainer, qbType, wave, positon) {
     q.qbGameObject.call(this, qbContainer);
 
-    var qb = this;
+    const qb = this;
     qb.type = qbType;
     qb.wave = wave;
     qb.position = positon;

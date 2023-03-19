@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
   'use strict';
 
-  var localStorage = {
+  const localStorage = {
     getCache: function(key) {
       return localStorage.getItem(key);
     },
@@ -15,7 +15,7 @@ define(function(require, exports, module) {
     }
   };
 
-  var cookie = {
+  const cookie = {
     getCache: function(key) {
       if (!key || !this.hasCookie(key)) {
         return null;
@@ -26,7 +26,7 @@ define(function(require, exports, module) {
       if (!key || /^(?:expires|max\-age|path|domain|secure)$/i.test(key)) {
         return this;
       }
-      var date = new Date();
+      const date = new Date();
       date.setTime(date.getTime() + (168 * 3600000));
       document.cookie = `${escape(key)}=${escape(val)}; expires=${date.toGMTString()}`;
       return this;

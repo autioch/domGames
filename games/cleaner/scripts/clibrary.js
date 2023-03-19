@@ -1,4 +1,4 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {};// eslint-disable-line no-var
 (function(q) {
   q.qbTrash = qbTrash;
   q.qbBin = qbBin;
@@ -9,15 +9,15 @@ var qbLib = qbLib || {};
     q.qbGameObject.call(this, qbContainer);
 
     // q.qbSoundObject.call(this);
-    var qb = this;
+    const qb = this;
 
     // qb.addSound('disposeSound', 'trashDispose.ogg');
     qb.bin = qbBin;
     qb.prop('type', qbBin.type).prop('size', size);
     qb.move = function() {
       qb.refresh();
-      var cw = qb.left + qb.width / 2;
-      var ch = qb.top + qb.height / 2;
+      const cw = qb.left + qb.width / 2;
+      const ch = qb.top + qb.height / 2;
       if ((cw >= qb.bin.left) && (cw <= (qb.bin.left + qb.bin.width)) && (ch >= qb.bin.top) && (ch <= (qb.bin.top + qb.bin.height))) {
         qb.div.draggable('destroy').fadeOut(100, function() {
           qb.dispose().onDispose(qb);
@@ -34,7 +34,7 @@ var qbLib = qbLib || {};
 
   function qbBin(qbContainer, type) {
     q.qbGameObject.call(this, qbContainer);
-    var qb = this;
+    const qb = this;
     qb.prop('type', type);
     qb.div.click(qb.locateRandom);
     qb.locateRandom().show();
@@ -42,13 +42,13 @@ var qbLib = qbLib || {};
 
   function qbPlayArea(qbContainer, id) {
     q.qbGameArea.call(this, qbContainer);
-    var qb = this;
+    const qb = this;
     qb.div.attr('id', id);
     qb.level = {};
     qb.bins = [];
     qb.binsCount = 0;
     qb.setBins = function() {
-      for (var i = 1; i <= qb.level.bin; i++) {
+      for (let i = 1; i <= qb.level.bin; i++) {
         qb.bins[++qb.binsCount] = new qbBin(qb, i);
       }
     };
@@ -68,11 +68,11 @@ var qbLib = qbLib || {};
     qb.trashes = [];
     qb.trashesCount = 0;
     qb.addTrash = function(runner) {
-      var t = new qbTrash(qb, qb.bins[random(qb.binsCount, 1)], random(3, 1));
+      const t = new qbTrash(qb, qb.bins[random(qb.binsCount, 1)], random(3, 1));
       qb.trashes[++qb.trashesCount] = t;
       t.onDispose = qb.trashDispose;
-      var tx = parseInt(runner.div.css('top'), 10);
-      var ty = parseInt(runner.div.css('left'), 10);
+      const tx = parseInt(runner.div.css('top'), 10);
+      const ty = parseInt(runner.div.css('left'), 10);
       t.locate(tx, ty).present();
       qb.trashAdd();
     };
@@ -85,7 +85,7 @@ var qbLib = qbLib || {};
     qb.runnersCount = 0;
     qb.addRunner = function() {
       if (!qb.paused) {
-        var r = new qbRunner(qb, qb.level.runnerSpeed, qb.level.trashFrequency, qb.level.trashAccel);
+        const r = new qbRunner(qb, qb.level.runnerSpeed, qb.level.trashFrequency, qb.level.trashAccel);
         qb.runners[++qb.runnersCount] = r;
         r.onAction = qb.addTrash;
         r.onDispose = qb.runnerDispose;
@@ -126,7 +126,7 @@ var qbLib = qbLib || {};
     qb.onPause = function() {
       if (qb.started) {
         clearTimeout(qb.runnerTimer);
-        for (var a in qb.runners) {
+        for (const a in qb.runners) {
           if (!qb.runners[a].disposed) {
             qb.runners[a].pause();
           }
@@ -137,7 +137,7 @@ var qbLib = qbLib || {};
     };
     qb.onResume = function() {
       if (qb.started) {
-        for (var a in qb.runners) {
+        for (const a in qb.runners) {
           if (!qb.runners[a].disposed) {
             qb.runners[a].resume();
           }
@@ -150,7 +150,7 @@ var qbLib = qbLib || {};
     };
     qb.onStop = function() {
       clearTimeout(qb.runnerTimer);
-      for (var a in qb.runners) {
+      for (const a in qb.runners) {
         qb.runners[a].pause();
       }
     };
@@ -172,7 +172,7 @@ var qbLib = qbLib || {};
     q.qbActiveObject.call(this);
 
     // q.qbSoundObject.call(this);
-    var qb = this;
+    const qb = this;
 
     // qb.addSound('hitSound', 'runnerHit.ogg');
     qb._speed = speed;
@@ -183,7 +183,7 @@ var qbLib = qbLib || {};
       qb._left = random(qb.container.width - qb.width, 0);
       qb._top = random(qb.container.height - qb.height, 0);
       qb.left < qb._left ? qb.div.addClass('left') : qb.div.removeClass('left');
-      var speed = q.distance(qb.top, qb._top, qb.left, qb._left) * qb._speed;
+      const speed = q.distance(qb.top, qb._top, qb.left, qb._left) * qb._speed;
       qb.div.animate({
         left: `${qb._left}px`,
         top: `${qb._top}px`

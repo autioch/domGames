@@ -1,8 +1,8 @@
 define(function(require, exports, module) {
   'use strict';
-  var Visible = require('interfaces/visible');
-  var OptionButton = require('classes/optionButton');
-  var inherit = require('utils/inherit');
+  const Visible = require('interfaces/visible');
+  const OptionButton = require('classes/optionButton');
+  const inherit = require('utils/inherit');
 
   function Options(container) {
     inherit(Visible, this, container);
@@ -11,7 +11,8 @@ define(function(require, exports, module) {
 
   Options.prototype = {
     parseConfig: function(obj) {
-      var a, item;
+      let a;
+      let item;
       for (item in obj) {
         a = obj[item];
         this.addButton(item, a.desc, a.title, a.checked, a.enabled);
@@ -22,7 +23,7 @@ define(function(require, exports, module) {
       return this.refresh();
     },
     addButton: function(name, desc, title, checked, enabled) {
-      var btn = new OptionButton(this.div);
+      const btn = new OptionButton(this.div);
       this[name].div.attr('id', `qbOption${name}`);
       this[name].title = title;
       this[name].desc = desc;

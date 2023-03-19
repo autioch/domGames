@@ -1,9 +1,9 @@
 define(function(require, exports, module) {
   'use strict';
-  var Visible = require('interfaces/visible');
-  var Active = require('interfaces/active');
-  var Background = require('classes/background');
-  var inherit = require('utils/inherit');
+  const Visible = require('interfaces/visible');
+  const Active = require('interfaces/active');
+  const Background = require('classes/background');
+  const inherit = require('utils/inherit');
 
   function GameArea(container) {
     inherit(Visible, this, container);

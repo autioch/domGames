@@ -1,6 +1,6 @@
-var qbLib = qbLib || {};
+var qbLib = qbLib || {};// eslint-disable-line no-var
 (function(q) {
-  var GC;
+  let GC;
   q.initGems = function() {
     bg = new q.qbBackground();
     bg.present();
@@ -45,7 +45,7 @@ var qbLib = qbLib || {};
   speed_period = 5;
   gameId = 'gemArea';
 
-  var txt = {
+  const txt = {
     gameWin: 'Wygrana!',
     gameOver: 'Kryształy sięgnęły sufitu! Koniec gry!',
     follow: 'Kliknij, aby kontynuować...',

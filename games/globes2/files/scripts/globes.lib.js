@@ -2,7 +2,7 @@ qbLibrary.globes = qbLibrary.globes || {};
 
 qbLibrary.globes.library = {
   target: function(container, type, age) {
-    var x = this;
+    const x = this;
 
     x.init = function(container, type, age) {
       qbLibrary.utils.inherit(qbLibrary.interfaces.visible, this, container);
@@ -57,7 +57,7 @@ qbLibrary.globes.library = {
     x.init(container, type, age);
   },
   highscore: function(texts, setup) {
-    var x = this;
+    const x = this;
 
     x.init = function(texts, setup) {
       qbLibrary.utils.inherit(qbLibrary.interfaces.cache, this);
@@ -88,8 +88,8 @@ qbLibrary.globes.library = {
       x.score = $.parseJSON(x.getCache(x.setup)) || [];
 
       // console.log('get', x.getCache('highscore'), $.parseJSON(x.getCache('highscore')));
-      var result = x._title;
-      for (var i in x.score) {
+      let result = x._title;
+      for (const i in x.score) {
         result += `<tr><td>${x.score[i].join('</td><td>')}</td></tr>`;
       }
       return `${result}</tbody></table>`;

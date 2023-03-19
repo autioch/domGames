@@ -1,8 +1,8 @@
 define(function(require, exports, module) {
   'use strict';
-  var Visible = require('interfaces/visible');
-  var StatField = require('classes/statField');
-  var inherit = require('utils/inherit');
+  const Visible = require('interfaces/visible');
+  const StatField = require('classes/statField');
+  const inherit = require('utils/inherit');
 
   function Statistics(container) {
     inherit(Visible, this, container);
@@ -43,7 +43,8 @@ define(function(require, exports, module) {
       return this;
     },
     parseConfig: function(obj) {
-      var a, item;
+      let a;
+      let item;
       for (item in obj) {
         a = obj[item];
         this.add(item, a.limited, a.title, a.desc, a.value, a.maximum);

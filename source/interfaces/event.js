@@ -32,7 +32,7 @@ define(function(require, exports, module) {
     },
     trigger: function(type, arg) {
       if (this.hasListener(type)) {
-        for (var handler in this._listeners[type]) {
+        for (const handler in this._listeners[type]) {
           this._listeners[type][handler](arg);
         }
       }

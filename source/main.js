@@ -11,10 +11,10 @@ require.config({
 
 // start the app
 define(function(require) {
-  var classes = require('classes/index');
-  var interfaces = require('interfaces/index');
-  var settings = require('settings/index');
-  var utils = require('utils/index');
+  const classes = require('classes/index');
+  const interfaces = require('interfaces/index');
+  const settings = require('settings/index');
+  const utils = require('utils/index');
   console.log(Object.getOwnPropertyNames(classes));
   console.log(Object.getOwnPropertyNames(interfaces));
   console.log(Object.getOwnPropertyNames(settings));
