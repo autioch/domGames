@@ -1,7 +1,7 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
 
-  module.exports = function (arg) {
+  module.exports = function(arg) {
     return typeof arg !== 'undefined';
   };
 });

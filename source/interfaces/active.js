@@ -1,15 +1,15 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
   var Event = require('interfaces/event');
   var inherit = require('utils/inherit');
 
   module.exports = {
-    initActive: function () {
+    initActive: function() {
       this.paused = false;
       this.started = false;
       inherit(Event, this);
     },
-    start: function (arg) {
+    start: function(arg) {
       if (!this.started) {
         this.started = true;
         this.paused = false;
@@ -17,7 +17,7 @@ define(function (require, exports, module) {
       }
       return this;
     },
-    pause: function (arg) {
+    pause: function(arg) {
       if (this.started) {
         this.started = true;
         this.paused = true;
@@ -25,7 +25,7 @@ define(function (require, exports, module) {
       }
       return this;
     },
-    resume: function (arg) {
+    resume: function(arg) {
       if (this.started) {
         this.started = true;
         this.paused = false;
@@ -33,7 +33,7 @@ define(function (require, exports, module) {
       }
       return this;
     },
-    stop: function (arg) {
+    stop: function(arg) {
       if (this.started) {
         this.started = false;
         this.paused = true;

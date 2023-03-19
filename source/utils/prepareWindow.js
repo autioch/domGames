@@ -1,7 +1,7 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
 
-  module.exports = function () {
+  module.exports = function() {
     $('body').css({
       margin: 0,
       padding: 0,

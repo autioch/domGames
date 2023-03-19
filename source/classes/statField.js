@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
   var Visible = require('interfaces/visible');
   var inherit = require('utils/inherit');
@@ -24,7 +24,7 @@ define(function (require, exports, module) {
   }
 
   StatField.prototype = {
-    val: function (value) {
+    val: function(value) {
       if (isset(value)) {
         this.value = value;
         this._value.html(this.value);
@@ -32,11 +32,11 @@ define(function (require, exports, module) {
       }
       return this.value;
     },
-    valInc: function (value) {
+    valInc: function(value) {
       this.value += value ? parseInt(value, 10) : 1;
       this._value.html(this.value);
     },
-    max: function (value) {
+    max: function(value) {
       if (isset(value)) {
         this.maximum = value;
         this._maximum.html(this.maximum);
@@ -44,11 +44,11 @@ define(function (require, exports, module) {
       }
       return this.maximum;
     },
-    maxInc: function (value) {
+    maxInc: function(value) {
       this.maximum += value ? parseInt(value, 10) : 1;
       this._maximumthis.html(this.maximum);
     },
-    repaint: function () {
+    repaint: function() {
       this.div.attr('title', this.title);
       this._desc.html(this.desc);
       this._value.html(this.value);
@@ -57,17 +57,17 @@ define(function (require, exports, module) {
       this.limit(this.limited);
       return this;
     },
-    parseStatField: function (array) {
+    parseStatField: function(array) {
       for (var a in array) {
         if (isset(this[a]) && (typeof this[a] !== 'function')) {
-          //TODO
+          // TODO
           this[a] = array[a];
         }
       }
       this.repaint();
       return this;
     },
-    limit: function (enabled) {
+    limit: function(enabled) {
       if (isset(enabled)) {
         this.limited = enabled;
         if (enabled) {
@@ -78,9 +78,8 @@ define(function (require, exports, module) {
           this._maximum.hide(0);
         }
         return this;
-      } else {
-        return (this.limited) && (this.value > this.maximum);
       }
+      return this.limited && (this.value > this.maximum);
     }
   };
 

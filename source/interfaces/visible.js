@@ -1,11 +1,11 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
 
   var random = require('utils/random');
   var remClassRegEx = require('utils/remClassRegEx');
 
   module.exports = {
-    initVisible: function (container) {
+    initVisible: function(container) {
       this.div = $('<div />')
         .appendTo(container || $('body'))
         .css({
@@ -19,54 +19,46 @@ define(function (require, exports, module) {
       this.disposed = false;
       this.refresh();
     },
-    locateRandom: function () {
-      return this.refresh().locate(
-        random(this.div.parent().height() - this.height),
-        random(this.div.parent().width() - this.width)
-      );
+    locateRandom: function() {
+      return this.refresh().locate(random(this.div.parent().height() - this.height),
+                                   random(this.div.parent().width() - this.width));
     },
-    locateRandomWindow: function () {
-      return this.refresh().locate(
-        random(window.innerHeight - this.height),
-        random(window.innerWidth - this.width)
-      );
+    locateRandomWindow: function() {
+      return this.refresh().locate(random(window.innerHeight - this.height),
+                                   random(window.innerWidth - this.width));
     },
-    center: function () {
-      return this.refresh().locate(
-        (this.div.parent().height() - this.height) / 2, (this.div.parent().width() - this.width) / 2
-      );
+    center: function() {
+      return this.refresh().locate((this.div.parent().height() - this.height) / 2, (this.div.parent().width() - this.width) / 2);
     },
-    centerWindow: function () {
-      return this.refresh().locate(
-        (window.innerHeight - this.height) / 2, (window.innerWidth - this.width) / 2
-      );
+    centerWindow: function() {
+      return this.refresh().locate((window.innerHeight - this.height) / 2, (window.innerWidth - this.width) / 2);
     },
-    refresh: function () {
+    refresh: function() {
       this.left = parseInt(this.div.css('left'), 10);
       this.top = parseInt(this.div.css('top'), 10);
       this.width = this.div.outerWidth();
       this.height = this.div.outerHeight();
       return this;
     },
-    locate: function (topp, leftp) {
+    locate: function(topp, leftp) {
       this.div.css({
         left: leftp,
         top: topp
       });
       return this.refresh();
     },
-    size: function (width, height) {
+    size: function(width, height) {
       this.div.css({
         height: height,
         width: width
       });
       return this.refresh();
     },
-    parseCss: function (array) {
+    parseCss: function(array) {
       this.div.css(array);
       return this.refresh();
     },
-    dispose: function (recursive) {
+    dispose: function(recursive) {
       this.div.remove();
       if (recursive) {
         for (var i in this) {
@@ -79,7 +71,7 @@ define(function (require, exports, module) {
       this.disposed = true;
       return this;
     },
-    present: function (speed, callback) {
+    present: function(speed, callback) {
       var c;
       switch (typeof speed) {
         case 'undefined':
@@ -95,7 +87,7 @@ define(function (require, exports, module) {
       this.div.fadeIn(this.presentSpeed, c);
       return this;
     },
-    prop: function (name, value) {
+    prop: function(name, value) {
       if (value) {
         remClassRegEx(this.div, name);
         this.div.attr(name, value).addClass(name + value);
@@ -103,16 +95,16 @@ define(function (require, exports, module) {
       }
       return value ? this : this[name];
     },
-    appendTo: function (el) {
+    appendTo: function(el) {
       el.append(this.div);
       return this;
     },
-    centerAlways: function () {
+    centerAlways: function() {
       $(window).on('resize', this.center);
       this.div.parent().on('resize', this.center);
       this.div.on('resize', this.center);
       this.centerDispose = this.dispose;
-      this.dispose = function (recursive) {
+      this.dispose = function(recursive) {
         $(window).off('resize', this.center);
         this.div.parent().off('resize', this.center);
         this.centerDispose(recursive);
@@ -120,5 +112,4 @@ define(function (require, exports, module) {
       return this.center();
     }
   };
-
 });

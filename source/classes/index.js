@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
 
   module.exports = {
@@ -11,6 +11,6 @@ define(function (require, exports, module) {
     Options: require('classes/options'),
     SplashMessage: require('classes/splashMessage'),
     StatField: require('classes/statField'),
-    Statistics: require('classes/statistics'),
+    Statistics: require('classes/statistics')
   };
 });

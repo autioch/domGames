@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
   var Visible = require('interfaces/visible');
   var Active = require('interfaces/active');
@@ -10,7 +10,8 @@ define(function (require, exports, module) {
     inherit(Active, this);
     this.div.addClass('qbGameArea');
     this.mist = new Background(this.div);
-    //this.div.on('resize', this.mist.cover);
+
+    // this.div.on('resize', this.mist.cover);
     this
       .on('start', this.mistHide)
       .on('stop', this.mistHide)
@@ -19,11 +20,11 @@ define(function (require, exports, module) {
   }
 
   GameArea.prototype = {
-    mistHide: function () {
+    mistHide: function() {
       this.mist.div.hide(0);
       return this;
     },
-    mistShow: function () {
+    mistShow: function() {
       this.mist.div.show(0);
       return this;
     }

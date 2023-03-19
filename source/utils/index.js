@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
 
   module.exports = {
@@ -9,6 +9,6 @@ define(function (require, exports, module) {
     isset: require('utils/isset'),
     prepareWindow: require('utils/prepareWindow'),
     random: require('utils/random'),
-    remClassRegEx: require('utils/remClassRegEx'),
+    remClassRegEx: require('utils/remClassRegEx')
   };
 });

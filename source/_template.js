@@ -1,4 +1,5 @@
-define(function (require, exports, module) {
+/* eslint-disable no-unused-vars  */
+define(function(require, exports, module) {
   'use strict';
   var Visible = require('interfaces/visible');
   var inherit = require('utils/inherit');

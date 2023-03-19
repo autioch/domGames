@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
   var Visible = require('interfaces/visible');
   var inherit = require('utils/inherit');
@@ -21,11 +21,11 @@ define(function (require, exports, module) {
   }
 
   ConfirmMessage.prototype = {
-    text: function (title, content, extra, follow) {
-      this._t = (typeof (title) === 'undefined') ? '' : title;
-      this._c = (typeof (content) === 'undefined') ? '' : content;
-      this._e = (typeof (extra) === 'undefined') ? '' : extra;
-      this._f = (typeof (follow) === 'undefined') ? '' : follow;
+    text: function(title, content, extra, follow) {
+      this._t = typeof title === 'undefined' ? '' : title;
+      this._c = typeof content === 'undefined' ? '' : content;
+      this._e = typeof extra === 'undefined' ? '' : extra;
+      this._f = typeof follow === 'undefined' ? '' : follow;
       this._t.length > 0 ? this._tp.html(this._t).show() : this._tp.hide();
       this._c.length > 0 ? this._cp.html(this._c).show() : this._cp.hide();
       this._e.length > 0 ? this._ep.html(this._e).show() : this._ep.hide();
@@ -33,19 +33,18 @@ define(function (require, exports, module) {
       this.center();
       return this;
     },
-    follow: function (callback) {
-      this.div.unbind('click').click(function () {
+    follow: function(callback) {
+      this.div.unbind('click').click(function() {
         this.div.unbind('click').stop().hide(0);
         callback();
       });
       return this;
     },
-    chain: function (list, func, i) {
-      i = i || 0;
+    chain: function(list, func, i = 0) {
       if ((list.length - 1) === i) {
         this.follow(func);
       } else {
-        this.follow(function () {
+        this.follow(function() {
           this.chain(list, func, i + 1);
         });
       }

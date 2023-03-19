@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
   var Visible = require('interfaces/visible');
   var inherit = require('utils/inherit');
@@ -12,11 +12,11 @@ define(function (require, exports, module) {
     this.desc = '';
     this.checked = false;
     this.enabled = false;
-    this.action = function () {};
+    this.action = function() {};
   }
 
   OptionButton.prototype = {
-    enable: function (status) {
+    enable: function(status) {
       this.enabled = status;
       if (this.enabled) {
         this.div.addClass('enabled');
@@ -24,7 +24,7 @@ define(function (require, exports, module) {
         this.div.removeClass('enabled');
       }
     },
-    check: function (status) {
+    check: function(status) {
       this.checked = status;
       if (this.checked) {
         this.div.addClass('checked');
@@ -33,12 +33,12 @@ define(function (require, exports, module) {
       }
       return this;
     },
-    click: function (action) {
+    click: function(action) {
       this.action = action;
       this.div.off('mousedown').on('mousedown', this.action);
       return this;
     },
-    repaint: function () {
+    repaint: function() {
       this.div.attr('title', this.title);
       this.div.html(this.desc);
       this.check(this.checked);

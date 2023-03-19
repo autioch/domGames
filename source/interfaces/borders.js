@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
   var Visible = require('interfaces/visible');
   var inherit = require('utils/inherit');
@@ -16,7 +16,7 @@ define(function (require, exports, module) {
   }
 
   module.exports = {
-    addBorders: function (t, r, b, l, show) {
+    addBorders: function(t, r, b, l, show) {
       this._borders = {};
       this._bw = 0;
       this._bh = 0;
@@ -41,7 +41,7 @@ define(function (require, exports, module) {
       }
 
       var oldRefresh = this.refresh;
-      this.refresh = function () {
+      this.refresh = function() {
         oldRefresh();
         this.resizeBorders();
         return this;
@@ -49,20 +49,20 @@ define(function (require, exports, module) {
       show && this.showBorders();
       return this.refresh();
     },
-    resizeBorders: function () {
+    resizeBorders: function() {
       this._borders.t && this._borders.t.locate(-this._bh, -this._bh / 2).size(this.width + this._bh, this._bh * 2);
       this._borders.r && this._borders.r.locate(-this._bw / 2, this.width - this._bw).size(this._bw * 2, this.height + this._bw);
       this._borders.b && this._borders.b.locate(this.height - this._bh, -this._bh / 2).size(this.width + this._bh, this._bh * 2);
       this._borders.l && this._borders.l.locate(-this._bw / 2, -this._bw).size(this._bw * 2, this.height + this._bw);
       return this;
     },
-    hideBorders: function () {
+    hideBorders: function() {
       for (var b in this._borders) {
         this._borders[b].div.hide(0);
       }
       return this;
     },
-    showBorders: function () {
+    showBorders: function() {
       for (var b in this._borders) {
         this._borders[b].div.show(0);
       }

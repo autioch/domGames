@@ -1,17 +1,17 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
 
   var settings = require('settings/index.js');
 
   module.exports = {
-    initSound: function (dir) {
+    initSound: function(dir) {
       this._dir = dir;
       this._sounds = {};
     },
-    addSound: function (name, value) {
+    addSound: function(name, value) {
       try {
         var a = new Audio();
-        if (a.canPlayType('audio/' + value.split('.').pop()) !== '') {
+        if (a.canPlayType(`audio/${value.split('.').pop()}`) !== '') {
           a.src = this._dir + value;
           this._sounds[name] = a;
         }
@@ -20,7 +20,7 @@ define(function (require, exports, module) {
       }
       return this;
     },
-    playSound: function (name) {
+    playSound: function(name) {
       if (this._sounds[name]) {
         try {
           if (settings.sound) {
@@ -36,7 +36,7 @@ define(function (require, exports, module) {
       }
       return this;
     },
-    parseSounds: function (config) {
+    parseSounds: function(config) {
       for (var i in config) {
         this.addSound(i, config[i]);
       }

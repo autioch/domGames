@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
   'use strict';
   var Visible = require('interfaces/visible');
   var OptionButton = require('classes/optionButton');
@@ -10,7 +10,7 @@ define(function (require, exports, module) {
   }
 
   Options.prototype = {
-    parseConfig: function (obj) {
+    parseConfig: function(obj) {
       var a, item;
       for (item in obj) {
         a = obj[item];
@@ -21,9 +21,9 @@ define(function (require, exports, module) {
       }
       return this.refresh();
     },
-    addButton: function (name, desc, title, checked, enabled) {
+    addButton: function(name, desc, title, checked, enabled) {
       var btn = new OptionButton(this.div);
-      this[name].div.attr('id', 'qbOption' + name);
+      this[name].div.attr('id', `qbOption${name}`);
       this[name].title = title;
       this[name].desc = desc;
       this[name].checked = checked || false;
@@ -31,7 +31,7 @@ define(function (require, exports, module) {
       this[name] = btn;
       return this;
     },
-    remove: function (name) {
+    remove: function(name) {
       this[name].dispose();
       this[name] = null;
       return this;
