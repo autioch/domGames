@@ -14,5 +14,8 @@
     "url": "https://github.com/autioch/domGames/issues"
   },
   "homepage": "https://github.com/autioch/domGames#readme",
-  "browserslist": "> 0.5%, last 2 versions, not dead"
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "devDependencies": {
+    "eslint-config-qb": "^1.1.0"
+  }
 }
