@@ -61,9 +61,9 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
   }
 
   function accelerate() {
-    speed_counter++;
-    if (speed_counter === speed_period) {
-      speed_counter = 0;
+    speedCounter++;
+    if (speedCounter === speedPeriod) {
+      speedCounter = 0;
       more = more * acc;
       stats.set('more', more);
     }
@@ -85,8 +85,8 @@ var qbLib = qbLib || {}; // eslint-disable-line no-var
   const max = 50;
   const acc = 0.95;
   let more = 3000;
-  let speed_counter = 0;
-  const speed_period = 5;
+  let speedCounter = 0;
+  const speedPeriod = 5;
   const gameId = 'shooterArea';
   const txt = {
     gameOver: 'Koniec gry!',

@@ -49,7 +49,6 @@ module.exports = {
     'padding-line-between-statements': ['off'],
     'prefer-arrow-callback': ['off'],
     'require-unicode-regexp': ['off'],
-    camelcase: ['off'],
     complexity: ['off']
   }
 };
