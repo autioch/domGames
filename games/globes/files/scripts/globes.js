@@ -75,13 +75,13 @@ var qbLib = qbLib || {};
         qb.prop('type', type);
         qb.ageLeft = gamec.age;
         qb.green = function(c) {
-            return(c > 100 ? (200 - c) + '%,100' : '100%,' + c) + '%,0%';
+            return (c > 100 ? (200 - c) + '%,100' : '100%,' + c) + '%,0%';
         };
         qb.blue = function(c) {
             if (c > 100) {
-                return(200 - c) + '%,100%,' + (c - 100) + '%';
+                return (200 - c) + '%,100%,' + (c - 100) + '%';
             } else {
-                return'100%,' + c + '%,0%';
+                return '100%,' + c + '%,0%';
             }
             ;
         };
@@ -388,9 +388,9 @@ var qbLib = qbLib || {};
         if (confirm(txt.exit)) {
             GC.game.pause();
             GC.dispose(true);
-            delete GC;
+            GC = null;
             bg.dispose();
-            delete bg;
+            bg = null;
         }
         ;
     }
@@ -400,5 +400,5 @@ var qbLib = qbLib || {};
             GC.cache.rem('highscore');
             GC.hs.score = [];
         }
-    }}
+    } }
 (qbLib));

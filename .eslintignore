@@ -1,2 +1,4 @@
 jquery*.js
 *.min.js
+text.js
+require.js

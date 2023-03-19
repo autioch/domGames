@@ -131,7 +131,7 @@ var qbLib = qbLib || {};
 
     function resetEnviroment() {
         starship.div.remove();
-        delete starship;
+        starship= null;
 
     }
 

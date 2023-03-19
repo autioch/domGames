@@ -167,9 +167,9 @@ var qbLib = qbLib || {};
         if (confirm('Czy na pewno zakończyć grę?')) {
             GC.game.pause();
             GC.dispose(true);
-            delete GC;
+            GC = null;
             bg.dispose();
-            delete bg;
+            bg = null;
         }
         ;
     }

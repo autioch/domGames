@@ -72,7 +72,7 @@ var qbLib = qbLib || {};
             for (var bItem in enemy) {
                 enemy[bItem].hit();
             }
-            delete enemy;
+            enemy = null;
             gameOver = true;
             splash.setMessage(txt.gameOver).setFollow(location.reload).present();
         }
