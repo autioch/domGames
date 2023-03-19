@@ -8,7 +8,12 @@ module.exports = {
     commonjs: true
   },
   rules: {
-    'id-length': ['off']
+    'func-names': ['off'],
+    'id-length': ['off'],
+    'no-invalid-this': ['off'],
+    'no-magic-numbers': ['off'],
+    'no-undef': ['off'],
+    'no-use-before-define': ['off']
   },
   globals: {
     $: 'true'
