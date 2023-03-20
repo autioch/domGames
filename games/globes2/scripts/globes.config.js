@@ -50,7 +50,7 @@ qbLibrary.globes.config = {
     }
   },
   sounds: {
-    location: 'files/sounds/',
+    location: 'sounds/',
     list: {
       lifeUp: 'lifeup.ogg',
       gameOver: 'gameover.ogg',
@@ -202,7 +202,7 @@ qbLibrary.globes.config = {
   },
   wallpaper: {
     timer: 6000,
-    location: 'files/images/background/',
+    location: 'images/background/',
     count: 13,
     images: {},
     colors: {

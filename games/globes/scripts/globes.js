@@ -23,7 +23,7 @@ var qbLib = qbLib || {};// eslint-disable-line no-var
       msize: 5,
       present: 0
     },
-    soundsLocation: 'files/sounds/',
+    soundsLocation: 'sounds/',
     sounds: {
       soundLifeUp: 'lifeup.ogg',
       soundGameOver: 'gameover.ogg',

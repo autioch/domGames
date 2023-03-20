@@ -6,18 +6,18 @@
 .qbContainer{width:640px;height:340px;}
 .qbStatistics{width:640px;}
 .qbStarzArea{width:800px;height:580px;background-color:#000;z-index:40;overflow:hidden;}
-.qbStars{width:9px;height:9px;background-image: url('star.png');}
-.qbGalaxy{width:48px;height:24px;background-image: url('galaxy.png');}
-.qbStarship{width:32px;height:32px;background-image: url('starship.png');}
+.qbStars{width:9px;height:9px;background-image: url('images/star.png');}
+.qbGalaxy{width:48px;height:24px;background-image: url('images/galaxy.png');}
+.qbStarship{width:32px;height:32px;background-image: url('images/starship.png');}
 .qbBullet{width:2px;height:8px;background-color: #fff;}
 
 .qbEnemy{z-index:31;width:32px;height:32px;}
-.qbEnemy.enemy1{background-image: url('enemy/1.png');}
-.qbEnemy.enemy2{background-image: url('enemy/2.png');}
-.qbEnemy.enemy3{background-image: url('enemy/3.png');}
-.qbEnemy.enemy4{background-image: url('enemy/4.png');}
-.qbEnemy.enemy5{background-image: url('enemy/5.png');}
-.qbEnemy.enemy6{background-image: url('enemy/6.png');}
+.qbEnemy.enemy1{background-image: url('images/enemy/1.png');}
+.qbEnemy.enemy2{background-image: url('images/enemy/2.png');}
+.qbEnemy.enemy3{background-image: url('images/enemy/3.png');}
+.qbEnemy.enemy4{background-image: url('images/enemy/4.png');}
+.qbEnemy.enemy5{background-image: url('images/enemy/5.png');}
+.qbEnemy.enemy6{background-image: url('images/enemy/6.png');}
 
 
 .qbStatistics{font-weight:bold;z-index:63;padding:4px;text-align:center;}
